@@ -1,0 +1,67 @@
+//
+//  PrefixHeader.pch
+//  YYIOSInstructions
+//
+//  Created by YaoYaoX on 16/8/5.
+//  Copyright © 2016年 YY. All rights reserved.
+//
+/*
+ 
+ pch文件的设置：
+    1.build setting中搜索prefix header
+    2.输入:  (项目名)/pch名.pch
+    3.以上配置的路径是：YYIOSInstructions.xcodeproj所在文件夹/(项目名)/pch名.pch ，所以pch文件如果目录结构和一下不一致的话可以相应的修改
+ 
+ 目录结构
+ 
+ －－YYIOSInstructions
+
+    －－YYIOSInstructions
+ 
+        －－PrefixHeader.pch
+        －－其他
+ 
+    －－YYIOSInstructions.xcodeproj
+ 
+    －－YYIOSInstructionsTests
+ 
+ 
+ */
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+// 系统版本信息
+#define kIOSVersion [[UIDevice currentDevice] systemVersion]
+#define kIOS7Later  ([kIOSVersion floatValue] >= 7.0)
+#define kIOS8Later  ([kIOSVersion floatValue] >= 8.0)
+#define kIOS9Later  ([kIOSVersion floatValue] >= 9.0)
+
+// 尺寸信息
+#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenMaxLength  (MAX(kScreenWidth, kScreenHeight))
+#define kScreenMinLength  (MIN(kScreenWidth, kScreenHeight))
+
+// 硬件类型
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+#define IS_IPHONE_4 (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+// 颜色
+#define kColorTabTitle          [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1]
+#define kColorTabTitleSelected  [UIColor purpleColor]
+#define kFont(size) [UIFont systemFontOfSize:size]
+
+// 国际化
+#define kLocalString(stringKey)     NSLocalizedString(stringKey, nil)
+
+#endif
+
+#endif

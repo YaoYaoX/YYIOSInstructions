@@ -1,0 +1,14 @@
+/*
+ 国际化步骤：
+     1. 新建文件Localizable.strings(新建 -> ios -> Resource -> Strings file)
+     2. 选择Project -> info -> Localizations -> add -> 勾选Localizable.strings文件，完成，添加所需语言
+     3. 在对应语中文件下，填写相关健值对文件: "key" = "string(对应语种)";
+     4. 使用string方式：NSLocalizedString(key, nil);
+     5. "应用名"的国际化请查看文件InfoPlist.strings
+ */
+
+"Tab1"          = "Home";
+"Tab2"          = "Content";
+"Tab3"          = "Message";
+"Tab4"          = "Me";
+"NextPage"      = "Next page";

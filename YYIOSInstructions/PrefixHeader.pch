@@ -33,6 +33,9 @@
 
 #ifdef __OBJC__
 
+// 头文件
+#import "UIColor+Additions.h"
+
 // 系统版本信息
 #define kIOSVersion [[UIDevice currentDevice] systemVersion]
 #define kIOS7Later  ([kIOSVersion floatValue] >= 7.0)
@@ -40,28 +43,31 @@
 #define kIOS9Later  ([kIOSVersion floatValue] >= 9.0)
 
 // 尺寸信息
-#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
-#define kScreenMaxLength  (MAX(kScreenWidth, kScreenHeight))
-#define kScreenMinLength  (MIN(kScreenWidth, kScreenHeight))
+#define kScreenWidth        [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight       [UIScreen mainScreen].bounds.size.height
+#define kScreenMaxLength    (MAX(kScreenWidth, kScreenHeight))
+#define kScreenMinLength    (MIN(kScreenWidth, kScreenHeight))
 
 // 硬件类型
-#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
-#define IS_IPHONE_4 (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
-#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
-#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
-#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+#define IS_IPAD         (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE       (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA       ([[UIScreen mainScreen] scale] >= 2.0)
+#define IS_IPHONE_4     (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5     (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6     (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P    (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 // 颜色
 #define kColorTabTitle          [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1]
 #define kColorTabTitleSelected  [UIColor purpleColor]
-#define kFont(size) [UIFont systemFontOfSize:size]
+#define kFont(size)             [UIFont systemFontOfSize:size]
 
 // 国际化
 #define kLocalString(stringKey)     NSLocalizedString(stringKey, nil)
 
+// 颜色
+#define kMainColor          [UIColor colorWithHex:0x3C74F2]
+#define kGrayColor_150      [UIColor grayColorWithValue:150]
 #endif
 
 #endif

@@ -12,4 +12,7 @@
 
 - (void)addCloseButton;
 
+/** 用于重写 */
+- (void)setupSubviews;
+
 @end

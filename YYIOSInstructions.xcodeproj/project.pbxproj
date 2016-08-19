@@ -20,6 +20,10 @@
 		25754DAF1D548F29009EA9B7 /* YYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754DAE1D548F29009EA9B7 /* YYViewController.m */; };
 		25754DB21D5495F8009EA9B7 /* YYMiddleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754DB11D5495F8009EA9B7 /* YYMiddleController.m */; };
 		25754DBA1D54A518009EA9B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25754DBC1D54A518009EA9B7 /* Localizable.strings */; };
+		258393CE1D5DC74800980DBA /* YYScrollTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393CD1D5DC74800980DBA /* YYScrollTabBar.m */; };
+		258393D11D5DC7AE00980DBA /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393D01D5DC7AE00980DBA /* UIColor+Additions.m */; };
+		258393D41D5DDD5A00980DBA /* YYScrollTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393D31D5DDD5A00980DBA /* YYScrollTabView.m */; };
+		25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BBBB911D65C26F0011D9AF /* YYScrollTabTestController.m */; };
 		25DA60B51D587B8600A526C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25DA60B71D587B8600A526C4 /* InfoPlist.strings */; };
 		25DA60D31D58807100A526C4 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DA60BB1D58807100A526C4 /* MASCompositeConstraint.m */; };
 		25DA60D41D58807100A526C4 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DA60BE1D58807100A526C4 /* MASConstraint.m */; };
@@ -72,6 +76,14 @@
 		25754DB11D5495F8009EA9B7 /* YYMiddleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMiddleController.m; sourceTree = "<group>"; };
 		25754DBB1D54A518009EA9B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		25754DBE1D54A547009EA9B7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		258393CC1D5DC74800980DBA /* YYScrollTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYScrollTabBar.h; sourceTree = "<group>"; };
+		258393CD1D5DC74800980DBA /* YYScrollTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYScrollTabBar.m; sourceTree = "<group>"; };
+		258393CF1D5DC7AE00980DBA /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
+		258393D01D5DC7AE00980DBA /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
+		258393D21D5DDD5A00980DBA /* YYScrollTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYScrollTabView.h; sourceTree = "<group>"; };
+		258393D31D5DDD5A00980DBA /* YYScrollTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYScrollTabView.m; sourceTree = "<group>"; };
+		25BBBB901D65C26F0011D9AF /* YYScrollTabTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYScrollTabTestController.h; sourceTree = "<group>"; };
+		25BBBB911D65C26F0011D9AF /* YYScrollTabTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYScrollTabTestController.m; sourceTree = "<group>"; };
 		25DA60B61D587B8600A526C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		25DA60B81D587B8800A526C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25DA60BA1D58807100A526C4 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -189,6 +201,7 @@
 		25754D8E1D5471FA009EA9B7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				258393CB1D5DC6D800980DBA /* ScrollTab(可滑动的Tab) */,
 				25754D911D5471FA009EA9B7 /* LaunchVC(启动页) */,
 				25754D951D5471FA009EA9B7 /* Tab+Nav */,
 				25754D8F1D5471FA009EA9B7 /* Category(分类) */,
@@ -202,6 +215,8 @@
 			children = (
 				25754D9F1D5476D1009EA9B7 /* UIImage+Additions.h */,
 				25754DA01D5476D1009EA9B7 /* UIImage+Additions.m */,
+				258393CF1D5DC7AE00980DBA /* UIColor+Additions.h */,
+				258393D01D5DC7AE00980DBA /* UIColor+Additions.m */,
 			);
 			name = "Category(分类)";
 			path = Category;
@@ -263,6 +278,19 @@
 				25DA60EA1D588E4400A526C4 /* middleImg.jpg */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		258393CB1D5DC6D800980DBA /* ScrollTab(可滑动的Tab) */ = {
+			isa = PBXGroup;
+			children = (
+				258393CC1D5DC74800980DBA /* YYScrollTabBar.h */,
+				258393CD1D5DC74800980DBA /* YYScrollTabBar.m */,
+				258393D21D5DDD5A00980DBA /* YYScrollTabView.h */,
+				258393D31D5DDD5A00980DBA /* YYScrollTabView.m */,
+				25BBBB901D65C26F0011D9AF /* YYScrollTabTestController.h */,
+				25BBBB911D65C26F0011D9AF /* YYScrollTabTestController.m */,
+			);
+			path = "ScrollTab(可滑动的Tab)";
 			sourceTree = "<group>";
 		};
 		25DA60B91D58807100A526C4 /* Masonry */ = {
@@ -407,9 +435,12 @@
 				25754D521D54361F009EA9B7 /* AppDelegate.m in Sources */,
 				25DA60D91D58807100A526C4 /* NSArray+MASAdditions.m in Sources */,
 				25754D4F1D54361F009EA9B7 /* main.m in Sources */,
+				25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */,
+				258393CE1D5DC74800980DBA /* YYScrollTabBar.m in Sources */,
 				25754D981D5471FA009EA9B7 /* YYLaunchViewController.m in Sources */,
 				25DA60DB1D58807100A526C4 /* View+MASAdditions.m in Sources */,
 				25DA60D61D58807100A526C4 /* MASLayoutConstraint.m in Sources */,
+				258393D11D5DC7AE00980DBA /* UIColor+Additions.m in Sources */,
 				25DA60DF1D5882EB00A526C4 /* YYNavigationController.m in Sources */,
 				25DA60D41D58807100A526C4 /* MASConstraint.m in Sources */,
 				25DA60DA1D58807100A526C4 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -422,6 +453,7 @@
 				25DA60D81D58807100A526C4 /* MASViewConstraint.m in Sources */,
 				25754DAF1D548F29009EA9B7 /* YYViewController.m in Sources */,
 				25DA60D71D58807100A526C4 /* MASViewAttribute.m in Sources */,
+				258393D41D5DDD5A00980DBA /* YYScrollTabView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

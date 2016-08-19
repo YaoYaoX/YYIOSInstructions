@@ -31,7 +31,7 @@
     [self setValue:tabbar forKey:@"tabBar"];
 
     
-    [self addChildVC:@"YYViewController"
+    [self addChildVC:@"YYScrollTabTestController"
             withIcon:@"yy_tab_1"
         selectedIcon:@"yy_tab_1_selected"
                title:kLocalString(@"Tab1")];

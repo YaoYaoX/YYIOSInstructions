@@ -17,4 +17,4 @@
 
 
 ### 3. 自定义可点击、滑动的tab
->![tabDemo](https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/scrollableTabView.gif)
+![tabDemo](https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/scrollableTabView.gif)

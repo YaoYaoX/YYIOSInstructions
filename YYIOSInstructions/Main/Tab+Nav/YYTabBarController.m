@@ -37,7 +37,7 @@
                title:kLocalString(@"Tab1")];
     
     
-    [self addChildVC:@"YYViewController"
+    [self addChildVC:@"YYDeomController"
             withIcon:@"yy_tab_2"
         selectedIcon:@"yy_tab_2_selected"
                title:kLocalString(@"Tab2")];

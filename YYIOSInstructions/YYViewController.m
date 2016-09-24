@@ -31,7 +31,6 @@
     [nextPage setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [nextPage addTarget:self action:@selector(nextPageAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:nextPage];
-    
 }
 
 - (void)addCloseButton{
@@ -47,7 +46,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 - (void)nextPageAction:(UIButton *)btn{
+    
     YYViewController *VC = [[YYViewController alloc]init];
     [self.navigationController pushViewController:VC animated:YES];
 }

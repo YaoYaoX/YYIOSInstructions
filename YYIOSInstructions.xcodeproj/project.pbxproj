@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250A03DE1D6EE507005F6886 /* YYPushPopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03DD1D6EE507005F6886 /* YYPushPopAnimation.m */; };
+		250A03E41D6EE71D005F6886 /* YYTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03E31D6EE71D005F6886 /* YYTransitionDelegate.m */; };
+		250A03E71D6EE77F005F6886 /* YYPresentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03E61D6EE77F005F6886 /* YYPresentAnimation.m */; };
+		250A03ED1D6EF6C8005F6886 /* YYTransitionMainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03EC1D6EF6C8005F6886 /* YYTransitionMainNavController.m */; };
+		250A03F51D6EFB1A005F6886 /* YYDeomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03F41D6EFB1A005F6886 /* YYDeomController.m */; };
+		250A03F81D6EFE83005F6886 /* YYTransitionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03F71D6EFE83005F6886 /* YYTransitionTestViewController.m */; };
+		253F47191D81657A007FF85B /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F47181D81657A007FF85B /* NSString+URL.m */; };
 		25754D4F1D54361F009EA9B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754D4E1D54361F009EA9B7 /* main.m */; };
 		25754D521D54361F009EA9B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754D511D54361F009EA9B7 /* AppDelegate.m */; };
 		25754D5D1D54361F009EA9B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25754D5B1D54361F009EA9B7 /* LaunchScreen.storyboard */; };
@@ -23,7 +30,9 @@
 		258393CE1D5DC74800980DBA /* YYScrollTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393CD1D5DC74800980DBA /* YYScrollTabBar.m */; };
 		258393D11D5DC7AE00980DBA /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393D01D5DC7AE00980DBA /* UIColor+Additions.m */; };
 		258393D41D5DDD5A00980DBA /* YYScrollTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393D31D5DDD5A00980DBA /* YYScrollTabView.m */; };
+		25A863621D95367500C56883 /* YYTransitionMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A863611D95367500C56883 /* YYTransitionMainController.m */; };
 		25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BBBB911D65C26F0011D9AF /* YYScrollTabTestController.m */; };
+		25BF121C1D96326A000352CA /* YYSwipInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BF121B1D96326A000352CA /* YYSwipInteractiveTransition.m */; };
 		25DA60B51D587B8600A526C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25DA60B71D587B8600A526C4 /* InfoPlist.strings */; };
 		25DA60D31D58807100A526C4 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DA60BB1D58807100A526C4 /* MASCompositeConstraint.m */; };
 		25DA60D41D58807100A526C4 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DA60BE1D58807100A526C4 /* MASConstraint.m */; };
@@ -50,6 +59,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250A03DC1D6EE507005F6886 /* YYPushPopAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPushPopAnimation.h; sourceTree = "<group>"; };
+		250A03DD1D6EE507005F6886 /* YYPushPopAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPushPopAnimation.m; sourceTree = "<group>"; };
+		250A03E21D6EE71D005F6886 /* YYTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionDelegate.h; sourceTree = "<group>"; };
+		250A03E31D6EE71D005F6886 /* YYTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionDelegate.m; sourceTree = "<group>"; };
+		250A03E51D6EE77F005F6886 /* YYPresentAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPresentAnimation.h; sourceTree = "<group>"; };
+		250A03E61D6EE77F005F6886 /* YYPresentAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPresentAnimation.m; sourceTree = "<group>"; };
+		250A03EB1D6EF6C8005F6886 /* YYTransitionMainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionMainNavController.h; sourceTree = "<group>"; };
+		250A03EC1D6EF6C8005F6886 /* YYTransitionMainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionMainNavController.m; sourceTree = "<group>"; };
+		250A03F31D6EFB1A005F6886 /* YYDeomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDeomController.h; sourceTree = "<group>"; };
+		250A03F41D6EFB1A005F6886 /* YYDeomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDeomController.m; sourceTree = "<group>"; };
+		250A03F61D6EFE83005F6886 /* YYTransitionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionTestViewController.h; sourceTree = "<group>"; };
+		250A03F71D6EFE83005F6886 /* YYTransitionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionTestViewController.m; sourceTree = "<group>"; };
+		253F47171D81657A007FF85B /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
+		253F47181D81657A007FF85B /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
 		25754D4A1D54361F009EA9B7 /* YYIOSInstructions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYIOSInstructions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25754D4E1D54361F009EA9B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25754D501D54361F009EA9B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,8 +105,13 @@
 		258393D01D5DC7AE00980DBA /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		258393D21D5DDD5A00980DBA /* YYScrollTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYScrollTabView.h; sourceTree = "<group>"; };
 		258393D31D5DDD5A00980DBA /* YYScrollTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYScrollTabView.m; sourceTree = "<group>"; };
+		25A863601D95367500C56883 /* YYTransitionMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionMainController.h; sourceTree = "<group>"; };
+		25A863611D95367500C56883 /* YYTransitionMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionMainController.m; sourceTree = "<group>"; };
 		25BBBB901D65C26F0011D9AF /* YYScrollTabTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYScrollTabTestController.h; sourceTree = "<group>"; };
 		25BBBB911D65C26F0011D9AF /* YYScrollTabTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYScrollTabTestController.m; sourceTree = "<group>"; };
+		25BF121A1D96326A000352CA /* YYSwipInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSwipInteractiveTransition.h; sourceTree = "<group>"; };
+		25BF121B1D96326A000352CA /* YYSwipInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSwipInteractiveTransition.m; sourceTree = "<group>"; };
+		25BF121D1D9632EE000352CA /* YYTransitonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTransitonDefine.h; sourceTree = "<group>"; };
 		25DA60B61D587B8600A526C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		25DA60B81D587B8800A526C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25DA60BA1D58807100A526C4 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -159,6 +187,8 @@
 				25754D511D54361F009EA9B7 /* AppDelegate.m */,
 				25754DAD1D548F29009EA9B7 /* YYViewController.h */,
 				25754DAE1D548F29009EA9B7 /* YYViewController.m */,
+				250A03F31D6EFB1A005F6886 /* YYDeomController.h */,
+				250A03F41D6EFB1A005F6886 /* YYDeomController.m */,
 				25754D8E1D5471FA009EA9B7 /* Main */,
 				25754D8D1D5471F1009EA9B7 /* Vender */,
 				25754D4D1D54361F009EA9B7 /* Supporting Files */,
@@ -201,6 +231,7 @@
 		25754D8E1D5471FA009EA9B7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				258DB66A1D6EBF8800F33CAC /* Transition(自定义转场动画) */,
 				258393CB1D5DC6D800980DBA /* ScrollTab(可滑动的Tab) */,
 				25754D911D5471FA009EA9B7 /* LaunchVC(启动页) */,
 				25754D951D5471FA009EA9B7 /* Tab+Nav */,
@@ -217,6 +248,8 @@
 				25754DA01D5476D1009EA9B7 /* UIImage+Additions.m */,
 				258393CF1D5DC7AE00980DBA /* UIColor+Additions.h */,
 				258393D01D5DC7AE00980DBA /* UIColor+Additions.m */,
+				253F47171D81657A007FF85B /* NSString+URL.h */,
+				253F47181D81657A007FF85B /* NSString+URL.m */,
 			);
 			name = "Category(分类)";
 			path = Category;
@@ -291,6 +324,29 @@
 				25BBBB911D65C26F0011D9AF /* YYScrollTabTestController.m */,
 			);
 			path = "ScrollTab(可滑动的Tab)";
+			sourceTree = "<group>";
+		};
+		258DB66A1D6EBF8800F33CAC /* Transition(自定义转场动画) */ = {
+			isa = PBXGroup;
+			children = (
+				25BF121D1D9632EE000352CA /* YYTransitonDefine.h */,
+				25BF121A1D96326A000352CA /* YYSwipInteractiveTransition.h */,
+				25BF121B1D96326A000352CA /* YYSwipInteractiveTransition.m */,
+				250A03DC1D6EE507005F6886 /* YYPushPopAnimation.h */,
+				250A03DD1D6EE507005F6886 /* YYPushPopAnimation.m */,
+				250A03E51D6EE77F005F6886 /* YYPresentAnimation.h */,
+				250A03E61D6EE77F005F6886 /* YYPresentAnimation.m */,
+				250A03E21D6EE71D005F6886 /* YYTransitionDelegate.h */,
+				250A03E31D6EE71D005F6886 /* YYTransitionDelegate.m */,
+				250A03F61D6EFE83005F6886 /* YYTransitionTestViewController.h */,
+				250A03F71D6EFE83005F6886 /* YYTransitionTestViewController.m */,
+				25A863601D95367500C56883 /* YYTransitionMainController.h */,
+				25A863611D95367500C56883 /* YYTransitionMainController.m */,
+				250A03EB1D6EF6C8005F6886 /* YYTransitionMainNavController.h */,
+				250A03EC1D6EF6C8005F6886 /* YYTransitionMainNavController.m */,
+			);
+			name = "Transition(自定义转场动画)";
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		25DA60B91D58807100A526C4 /* Masonry */ = {
@@ -433,9 +489,13 @@
 			files = (
 				25754DA11D5476D1009EA9B7 /* UIImage+Additions.m in Sources */,
 				25754D521D54361F009EA9B7 /* AppDelegate.m in Sources */,
+				250A03F51D6EFB1A005F6886 /* YYDeomController.m in Sources */,
 				25DA60D91D58807100A526C4 /* NSArray+MASAdditions.m in Sources */,
 				25754D4F1D54361F009EA9B7 /* main.m in Sources */,
 				25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */,
+				25A863621D95367500C56883 /* YYTransitionMainController.m in Sources */,
+				250A03ED1D6EF6C8005F6886 /* YYTransitionMainNavController.m in Sources */,
+				253F47191D81657A007FF85B /* NSString+URL.m in Sources */,
 				258393CE1D5DC74800980DBA /* YYScrollTabBar.m in Sources */,
 				25754D981D5471FA009EA9B7 /* YYLaunchViewController.m in Sources */,
 				25DA60DB1D58807100A526C4 /* View+MASAdditions.m in Sources */,
@@ -443,13 +503,18 @@
 				258393D11D5DC7AE00980DBA /* UIColor+Additions.m in Sources */,
 				25DA60DF1D5882EB00A526C4 /* YYNavigationController.m in Sources */,
 				25DA60D41D58807100A526C4 /* MASConstraint.m in Sources */,
+				250A03E71D6EE77F005F6886 /* YYPresentAnimation.m in Sources */,
 				25DA60DA1D58807100A526C4 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				250A03F81D6EFE83005F6886 /* YYTransitionTestViewController.m in Sources */,
 				25DA60D31D58807100A526C4 /* MASCompositeConstraint.m in Sources */,
 				25754DB21D5495F8009EA9B7 /* YYMiddleController.m in Sources */,
 				25754D9A1D5471FA009EA9B7 /* YYTabBar.m in Sources */,
 				25754DA41D547F61009EA9B7 /* YYTabBarController.m in Sources */,
 				25DA60D51D58807100A526C4 /* MASConstraintMaker.m in Sources */,
+				250A03E41D6EE71D005F6886 /* YYTransitionDelegate.m in Sources */,
 				25DA60DC1D58807100A526C4 /* ViewController+MASAdditions.m in Sources */,
+				25BF121C1D96326A000352CA /* YYSwipInteractiveTransition.m in Sources */,
+				250A03DE1D6EE507005F6886 /* YYPushPopAnimation.m in Sources */,
 				25DA60D81D58807100A526C4 /* MASViewConstraint.m in Sources */,
 				25754DAF1D548F29009EA9B7 /* YYViewController.m in Sources */,
 				25DA60D71D58807100A526C4 /* MASViewAttribute.m in Sources */,
@@ -597,6 +662,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YY.YYIOSInstructions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -610,6 +676,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YY.YYIOSInstructions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

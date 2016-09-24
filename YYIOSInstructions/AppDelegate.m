@@ -57,4 +57,48 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+/// app当前正在展示的控制器
+- (UIViewController *)currentController{
+    
+    // 从rootController开始，检索出下一个根控制器，以便继续搜索出app正展示的controller
+    UIViewController *(^getNextRootController)(UIViewController *) = ^(UIViewController *rootController){
+        
+        UIViewController *nextRootVC = rootController;
+        
+        if (rootController.presentedViewController) {
+            
+            UIViewController *presentedVC = rootController.presentedViewController;
+            
+            // 如果presentedVC是系统控制器，默认先dismiss，在搜寻
+            if ([presentedVC isKindOfClass:[UIImagePickerController class]]){
+                [presentedVC dismissViewControllerAnimated:NO completion:nil];
+            } else {
+                // 如果控制器有modal过controller，presentedViewController为下一个rootVC
+                nextRootVC = presentedVC;
+            }
+        }
+        
+        if ([nextRootVC isKindOfClass:[UINavigationController class]]){
+            // 如果为导航控制器，rootVC为childViewControllers的最后一个
+            nextRootVC = [(UINavigationController *)rootController childViewControllers].lastObject;
+        } else if ([nextRootVC isKindOfClass:[UITabBarController class]]) {
+            // 如果是tabbar控制器，rootVC则是选中的选中tab的controller
+            nextRootVC = [(UITabBarController *)rootController selectedViewController];
+        }
+        
+        return nextRootVC;
+    };
+    
+    // 根控制器
+    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *nextRootVC = getNextRootController(rootVC);
+    UIViewController *currentVC = rootVC;
+    while (currentVC != nextRootVC) {
+        currentVC = nextRootVC ;
+        nextRootVC = getNextRootController(nextRootVC);
+    }
+        
+    return currentVC;
+}
+
 @end

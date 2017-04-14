@@ -22,6 +22,12 @@
     [self setupSubviews];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:self.hideNavBar animated:true];
+}
+
 - (void)setupSubviews{
     
     CGFloat btnW = 200;
@@ -50,6 +56,7 @@
 - (void)nextPageAction:(UIButton *)btn{
     
     YYViewController *VC = [[YYViewController alloc]init];
+    //VC.hideNavBar = arc4random_uniform(2)==1;
     [self.navigationController pushViewController:VC animated:YES];
 }
 @end

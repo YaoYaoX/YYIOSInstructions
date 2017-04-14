@@ -11,9 +11,10 @@
 
 @interface YYScrollTabBar ()
 
-@property (nonatomic, weak) UIButton *selectedItemBtn;
-@property (nonatomic, weak) UIView *indicatorV;
-@property (nonatomic, strong) NSMutableArray<UIButton *> *tabBarItems;
+@property (nonatomic, weak)   UIButton                      *selectedItemBtn;
+@property (nonatomic, weak)   UIView                        *indicatorV;
+@property (nonatomic, strong) NSMutableArray<UIButton *>    *tabBarItems;
+@property (nonatomic, assign) CGFloat                       indicatorWidth;
 
 @end
 
@@ -29,12 +30,14 @@
         self.layer.shadowOffset = CGSizeMake(0, 2);
         self.layer.shadowOpacity = 0.5;
 
-        UIView *indicatorV = [[UIView alloc]init];
+        // 指示线
+        UIView *indicatorV = [[UIView alloc] init];
         indicatorV.backgroundColor = kMainColor;
         [self addSubview:indicatorV];
         self.indicatorV = indicatorV;
         
         self.selectedIndex = 0;
+        self.indicatorWidth = 70;
     }
     return self;
 }
@@ -52,8 +55,12 @@
     }
     
     // 指示线
-    self.indicatorV.frame = CGRectMake(self.selectedIndex * width, size.height-3, width, 3);
+    self.indicatorV.frame = CGRectMake(0, 0, self.indicatorWidth, 3);
+    self.indicatorV.center = CGPointMake(width*0.5 + self.selectedIndex*width, size.height - 1.5);
+    self.selectedIndex = self.selectedIndex;
 }
+
+#pragma mark - 添加tab
 
 -(void)addItemsWithTitleArray:(NSArray *)titles{
     
@@ -113,12 +120,15 @@
     
     //每个item的width
     CGFloat width = self.frame.size.width / self.tabBarItems.count;
+    
     //指示线x的真实能移动的范围
     CGFloat realMovableWidth = (self.tabBarItems.count-1)* width;
+    
+    // 通过修改中心点改变位置
     CGFloat newX = indicatorPercent*realMovableWidth;
-    CGRect frame = self.indicatorV.frame;
-    frame.origin.x = newX;
-    self.indicatorV.frame = frame;
+    CGPoint center = self.indicatorV.center;
+    center.x = width*0.5 + newX;
+    self.indicatorV.center = center;
 }
 
 -(void)setSelectedIndex:(NSInteger)selectedIndex{
@@ -148,20 +158,19 @@
     
     //指示线位置
     __weak typeof (self) weakSelf = self;
-    CGRect indicatorFrame = self.indicatorV.frame;
+    CGPoint indicatorCenter = self.indicatorV.center;
     
     //确定滑动时长
-    CGFloat diff = indicatorFrame.origin.x - currentBtn.frame.origin.x;
-    CGFloat all = self.frame.size.width - indicatorFrame.size.width;
+    CGFloat diff = indicatorCenter.x - currentBtn.center.x;
+    CGFloat all = self.frame.size.width - currentBtn.frame.size.width;
     CGFloat scale = fabs(diff)/ fabs(all);
     if (scale>1) {
         scale = 1;
     }
     CGFloat duration = 0.25 * scale;
-    
-    indicatorFrame.origin.x = currentBtn.frame.origin.x;
+    indicatorCenter.x = currentBtn.center.x;
     [UIView animateWithDuration:duration animations:^{
-        weakSelf.indicatorV.frame = indicatorFrame;
+        weakSelf.indicatorV.center = indicatorCenter;
     }];
 }
 

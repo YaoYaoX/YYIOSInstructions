@@ -10,6 +10,8 @@
 
 @interface YYViewController : UIViewController
 
+@property (nonatomic, assign) BOOL hideNavBar;
+
 - (void)addCloseButton;
 
 /** 用于重写 */

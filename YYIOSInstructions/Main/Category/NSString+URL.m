@@ -1,9 +1,9 @@
 //
 //  NSString+URL.m
-//  Liveman
+//  YYIOSInstructions
 //
 //  Created by YaoYaoX on 16/9/8.
-//  Copyright © 2016年 LeSports. All rights reserved.
+//  Copyright © 2016年 YY. All rights reserved.
 //
 
 #import "NSString+URL.h"

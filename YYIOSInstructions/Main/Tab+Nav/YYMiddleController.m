@@ -17,11 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     // 图片压缩地址
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"middleImg.jpg" ofType:nil]];
     [self.view addSubview:imageView];
     

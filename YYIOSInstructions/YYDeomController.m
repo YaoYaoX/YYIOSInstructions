@@ -23,7 +23,8 @@ static NSString *ID = @"reuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = @[@{@"title":@"自定义转场动画"}];
+    self.data = @[@{@"title":@"转场动画"},
+                  @{@"title":@"ActionSheet", @"class":@"YYActionSheetTestController"}];
 
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight)];
     tableView.backgroundColor = [UIColor whiteColor];
@@ -49,10 +50,17 @@ static NSString *ID = @"reuseIdentifier";
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-
         YYTransitionMainNavController *nav = [YYTransitionMainNavController controller];
         [self presentViewController:nav animated:YES completion:nil];
+        return;
     }
+    
+    NSString *classStr = self.data[indexPath.row][@"class"];
+    if (classStr) {
+        id contrller = [[NSClassFromString(classStr) alloc] init];
+        [self.navigationController pushViewController:contrller animated:YES];
+    }
+
 }
 
 @end

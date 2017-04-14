@@ -39,17 +39,16 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    //    // 1. 直接重新调整item的位置
-    //    [self resetSubItemFrame1];
-    
-    // 2.更简便调整item的方法：在UITabbarController中多添加加一个控制器，再调整中间的button位置就行
-    [self resetSubItemFrame2];
-    
-    
     // 调整图片位置
     for (UITabBarItem *item in self.items) {
         item.imageInsets = UIEdgeInsetsMake(-7, 0, 7, 0);
     }
+    
+        // 1. 直接重新调整item的位置
+        [self resetSubItemFrame1];
+    
+//    // 2.更简便调整item的方法：在UITabbarController中多添加加一个控制器，再调整中间的button位置就行
+//    [self resetSubItemFrame2];
 }
 
 /** 调整Item方式1 */
@@ -58,7 +57,7 @@
     CGSize size = self.frame.size;
     CGFloat directW = 60;
     CGFloat directH = 60;
-    self.middleBtn.frame = CGRectMake((size.width-directW)*0.5, size.height-directH-15, directW, directH);
+    self.middleBtn.frame = CGRectMake((size.width-directW)*0.5, size.height-directH, directW, directH);
     UIView *imgV = [self.middleBtn viewWithTag:1000];
     imgV.frame = CGRectMake(0, directH-80, directW, 70);
     

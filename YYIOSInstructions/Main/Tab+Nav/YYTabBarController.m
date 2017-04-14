@@ -42,8 +42,8 @@
         selectedIcon:@"yy_tab_2_selected"
                title:kLocalString(@"Tab2")];
     
-    // 占位
-    [self addChildViewController:[[UIViewController alloc] init]];
+//    // 占位
+//    [self addChildViewController:[[UIViewController alloc] init]];
     
     
     [self addChildVC:@"YYViewController"

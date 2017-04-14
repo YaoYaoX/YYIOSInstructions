@@ -21,4 +21,4 @@
 
 
 ### 4. ActionSheet(类似微博的ActionSheet)
-<img src="https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/actionsheet.png" width = "200" alt="ActionSheet" align=center />
+<img src="https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/actionsheet.png" width = "300" alt="ActionSheet" align=center />

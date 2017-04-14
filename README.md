@@ -21,4 +21,11 @@
 
 
 ### 4. ActionSheet(类似微博的ActionSheet)
-<img src="https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/actionsheet.png" width = "300" alt="ActionSheet" align=center />
+<img src="https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/actionsheet.png" width = "300" alt="ActionSheet" align="center" />
+
+### 5. Polygon:可以转动的多边形
+
+    1. numberOfSides：多边形的边数
+    2. rotateNum：每次旋转时转动的角个数
+<br />
+<img src="https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/polygon.png" width="300" alt="Polygon" align="center" />

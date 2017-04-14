@@ -13,17 +13,17 @@
 		250A03ED1D6EF6C8005F6886 /* YYTransitionMainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03EC1D6EF6C8005F6886 /* YYTransitionMainNavController.m */; };
 		250A03F51D6EFB1A005F6886 /* YYDeomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03F41D6EFB1A005F6886 /* YYDeomController.m */; };
 		250A03F81D6EFE83005F6886 /* YYTransitionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03F71D6EFE83005F6886 /* YYTransitionTestViewController.m */; };
+		25154B411EA0B81000CB754F /* YYLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B3F1EA0B81000CB754F /* YYLaunchViewController.m */; };
+		25154B421EA0B81000CB754F /* YYLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25154B401EA0B81000CB754F /* YYLaunchViewController.xib */; };
+		25154B4B1EA0B82100CB754F /* YYActionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B441EA0B82100CB754F /* YYActionItem.m */; };
+		25154B4C1EA0B82100CB754F /* YYActionSheetTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B461EA0B82100CB754F /* YYActionSheetTestController.m */; };
+		25154B4D1EA0B82100CB754F /* YYActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B481EA0B82100CB754F /* YYActionSheetView.m */; };
+		25154B4E1EA0B82100CB754F /* YYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B4A1EA0B82100CB754F /* YYCoverView.m */; };
 		253F47191D81657A007FF85B /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F47181D81657A007FF85B /* NSString+URL.m */; };
-		254AF6881E9F508F0031CE89 /* YYActionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 254AF6871E9F508F0031CE89 /* YYActionItem.m */; };
-		254AF68B1E9F5F1F0031CE89 /* YYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 254AF68A1E9F5F1F0031CE89 /* YYCoverView.m */; };
-		254AF68E1E9F67040031CE89 /* YYActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 254AF68D1E9F67040031CE89 /* YYActionSheetView.m */; };
-		254AF6911E9F80740031CE89 /* YYActionSheetTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254AF6901E9F80740031CE89 /* YYActionSheetTestController.m */; };
 		25754D4F1D54361F009EA9B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754D4E1D54361F009EA9B7 /* main.m */; };
 		25754D521D54361F009EA9B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754D511D54361F009EA9B7 /* AppDelegate.m */; };
 		25754D5D1D54361F009EA9B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25754D5B1D54361F009EA9B7 /* LaunchScreen.storyboard */; };
 		25754D681D54361F009EA9B7 /* YYIOSInstructionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754D671D54361F009EA9B7 /* YYIOSInstructionsTests.m */; };
-		25754D981D5471FA009EA9B7 /* YYLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754D931D5471FA009EA9B7 /* YYLaunchViewController.m */; };
-		25754D991D5471FA009EA9B7 /* YYLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25754D941D5471FA009EA9B7 /* YYLaunchViewController.xib */; };
 		25754D9A1D5471FA009EA9B7 /* YYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754D971D5471FA009EA9B7 /* YYTabBar.m */; };
 		25754DA11D5476D1009EA9B7 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754DA01D5476D1009EA9B7 /* UIImage+Additions.m */; };
 		25754DA41D547F61009EA9B7 /* YYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754DA31D547F61009EA9B7 /* YYTabBarController.m */; };
@@ -75,16 +75,19 @@
 		250A03F41D6EFB1A005F6886 /* YYDeomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDeomController.m; sourceTree = "<group>"; };
 		250A03F61D6EFE83005F6886 /* YYTransitionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionTestViewController.h; sourceTree = "<group>"; };
 		250A03F71D6EFE83005F6886 /* YYTransitionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionTestViewController.m; sourceTree = "<group>"; };
+		25154B3E1EA0B81000CB754F /* YYLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYLaunchViewController.h; path = "YYIOSInstructions/Main/LaunchVC(启动页)/YYLaunchViewController.h"; sourceTree = SOURCE_ROOT; };
+		25154B3F1EA0B81000CB754F /* YYLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYLaunchViewController.m; path = "YYIOSInstructions/Main/LaunchVC(启动页)/YYLaunchViewController.m"; sourceTree = SOURCE_ROOT; };
+		25154B401EA0B81000CB754F /* YYLaunchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YYLaunchViewController.xib; path = "YYIOSInstructions/Main/LaunchVC(启动页)/YYLaunchViewController.xib"; sourceTree = SOURCE_ROOT; };
+		25154B431EA0B82100CB754F /* YYActionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYActionItem.h; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYActionItem.h"; sourceTree = SOURCE_ROOT; };
+		25154B441EA0B82100CB754F /* YYActionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYActionItem.m; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYActionItem.m"; sourceTree = SOURCE_ROOT; };
+		25154B451EA0B82100CB754F /* YYActionSheetTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYActionSheetTestController.h; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYActionSheetTestController.h"; sourceTree = SOURCE_ROOT; };
+		25154B461EA0B82100CB754F /* YYActionSheetTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYActionSheetTestController.m; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYActionSheetTestController.m"; sourceTree = SOURCE_ROOT; };
+		25154B471EA0B82100CB754F /* YYActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYActionSheetView.h; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYActionSheetView.h"; sourceTree = SOURCE_ROOT; };
+		25154B481EA0B82100CB754F /* YYActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYActionSheetView.m; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYActionSheetView.m"; sourceTree = SOURCE_ROOT; };
+		25154B491EA0B82100CB754F /* YYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYCoverView.h; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYCoverView.h"; sourceTree = SOURCE_ROOT; };
+		25154B4A1EA0B82100CB754F /* YYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYCoverView.m; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYCoverView.m"; sourceTree = SOURCE_ROOT; };
 		253F47171D81657A007FF85B /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
 		253F47181D81657A007FF85B /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
-		254AF6861E9F508F0031CE89 /* YYActionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYActionItem.h; sourceTree = "<group>"; };
-		254AF6871E9F508F0031CE89 /* YYActionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYActionItem.m; sourceTree = "<group>"; };
-		254AF6891E9F5F1F0031CE89 /* YYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCoverView.h; sourceTree = "<group>"; };
-		254AF68A1E9F5F1F0031CE89 /* YYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCoverView.m; sourceTree = "<group>"; };
-		254AF68C1E9F67040031CE89 /* YYActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYActionSheetView.h; sourceTree = "<group>"; };
-		254AF68D1E9F67040031CE89 /* YYActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYActionSheetView.m; sourceTree = "<group>"; };
-		254AF68F1E9F80740031CE89 /* YYActionSheetTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYActionSheetTestController.h; sourceTree = "<group>"; };
-		254AF6901E9F80740031CE89 /* YYActionSheetTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYActionSheetTestController.m; sourceTree = "<group>"; };
 		25754D4A1D54361F009EA9B7 /* YYIOSInstructions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYIOSInstructions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25754D4E1D54361F009EA9B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25754D501D54361F009EA9B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -95,9 +98,6 @@
 		25754D671D54361F009EA9B7 /* YYIOSInstructionsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYIOSInstructionsTests.m; sourceTree = "<group>"; };
 		25754D691D54361F009EA9B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25754D841D5468C9009EA9B7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		25754D921D5471FA009EA9B7 /* YYLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLaunchViewController.h; sourceTree = "<group>"; };
-		25754D931D5471FA009EA9B7 /* YYLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLaunchViewController.m; sourceTree = "<group>"; };
-		25754D941D5471FA009EA9B7 /* YYLaunchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYLaunchViewController.xib; sourceTree = "<group>"; };
 		25754D961D5471FA009EA9B7 /* YYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTabBar.h; sourceTree = "<group>"; };
 		25754D971D5471FA009EA9B7 /* YYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTabBar.m; sourceTree = "<group>"; };
 		25754D9F1D5476D1009EA9B7 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
@@ -177,14 +177,14 @@
 		254AF6851E9F4FDA0031CE89 /* ActionSheet(类似微博的弹出框) */ = {
 			isa = PBXGroup;
 			children = (
-				254AF6861E9F508F0031CE89 /* YYActionItem.h */,
-				254AF6871E9F508F0031CE89 /* YYActionItem.m */,
-				254AF6891E9F5F1F0031CE89 /* YYCoverView.h */,
-				254AF68A1E9F5F1F0031CE89 /* YYCoverView.m */,
-				254AF68C1E9F67040031CE89 /* YYActionSheetView.h */,
-				254AF68D1E9F67040031CE89 /* YYActionSheetView.m */,
-				254AF68F1E9F80740031CE89 /* YYActionSheetTestController.h */,
-				254AF6901E9F80740031CE89 /* YYActionSheetTestController.m */,
+				25154B431EA0B82100CB754F /* YYActionItem.h */,
+				25154B441EA0B82100CB754F /* YYActionItem.m */,
+				25154B471EA0B82100CB754F /* YYActionSheetView.h */,
+				25154B481EA0B82100CB754F /* YYActionSheetView.m */,
+				25154B491EA0B82100CB754F /* YYCoverView.h */,
+				25154B4A1EA0B82100CB754F /* YYCoverView.m */,
+				25154B451EA0B82100CB754F /* YYActionSheetTestController.h */,
+				25154B461EA0B82100CB754F /* YYActionSheetTestController.m */,
 			);
 			name = "ActionSheet(类似微博的弹出框)";
 			path = ActionSheet;
@@ -295,9 +295,9 @@
 		25754D911D5471FA009EA9B7 /* LaunchVC(启动页) */ = {
 			isa = PBXGroup;
 			children = (
-				25754D921D5471FA009EA9B7 /* YYLaunchViewController.h */,
-				25754D931D5471FA009EA9B7 /* YYLaunchViewController.m */,
-				25754D941D5471FA009EA9B7 /* YYLaunchViewController.xib */,
+				25154B3E1EA0B81000CB754F /* YYLaunchViewController.h */,
+				25154B3F1EA0B81000CB754F /* YYLaunchViewController.m */,
+				25154B401EA0B81000CB754F /* YYLaunchViewController.xib */,
 			);
 			name = "LaunchVC(启动页)";
 			path = LaunchVC;
@@ -494,10 +494,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				25754D5D1D54361F009EA9B7 /* LaunchScreen.storyboard in Resources */,
+				25154B421EA0B81000CB754F /* YYLaunchViewController.xib in Resources */,
 				25DA60B51D587B8600A526C4 /* InfoPlist.strings in Resources */,
 				25754DBA1D54A518009EA9B7 /* Localizable.strings in Resources */,
 				25754DA61D54871A009EA9B7 /* Assets.xcassets in Resources */,
-				25754D991D5471FA009EA9B7 /* YYLaunchViewController.xib in Resources */,
 				25DA60EB1D588E4400A526C4 /* middleImg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,24 +523,24 @@
 				25754D4F1D54361F009EA9B7 /* main.m in Sources */,
 				25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */,
 				25A863621D95367500C56883 /* YYTransitionMainController.m in Sources */,
-				254AF68E1E9F67040031CE89 /* YYActionSheetView.m in Sources */,
+				25154B4D1EA0B82100CB754F /* YYActionSheetView.m in Sources */,
 				250A03ED1D6EF6C8005F6886 /* YYTransitionMainNavController.m in Sources */,
 				253F47191D81657A007FF85B /* NSString+URL.m in Sources */,
 				258393CE1D5DC74800980DBA /* YYScrollTabBar.m in Sources */,
-				25754D981D5471FA009EA9B7 /* YYLaunchViewController.m in Sources */,
-				254AF6881E9F508F0031CE89 /* YYActionItem.m in Sources */,
 				25DA60DB1D58807100A526C4 /* View+MASAdditions.m in Sources */,
+				25154B4B1EA0B82100CB754F /* YYActionItem.m in Sources */,
 				25DA60D61D58807100A526C4 /* MASLayoutConstraint.m in Sources */,
-				254AF68B1E9F5F1F0031CE89 /* YYCoverView.m in Sources */,
 				258393D11D5DC7AE00980DBA /* UIColor+Additions.m in Sources */,
 				25DA60DF1D5882EB00A526C4 /* YYNavigationController.m in Sources */,
 				25DA60D41D58807100A526C4 /* MASConstraint.m in Sources */,
 				250A03E71D6EE77F005F6886 /* YYPresentAnimation.m in Sources */,
+				25154B4C1EA0B82100CB754F /* YYActionSheetTestController.m in Sources */,
 				25DA60DA1D58807100A526C4 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				250A03F81D6EFE83005F6886 /* YYTransitionTestViewController.m in Sources */,
 				25DA60D31D58807100A526C4 /* MASCompositeConstraint.m in Sources */,
 				25754DB21D5495F8009EA9B7 /* YYMiddleController.m in Sources */,
 				25754D9A1D5471FA009EA9B7 /* YYTabBar.m in Sources */,
+				25154B4E1EA0B82100CB754F /* YYCoverView.m in Sources */,
 				25754DA41D547F61009EA9B7 /* YYTabBarController.m in Sources */,
 				25DA60D51D58807100A526C4 /* MASConstraintMaker.m in Sources */,
 				250A03E41D6EE71D005F6886 /* YYTransitionDelegate.m in Sources */,
@@ -549,9 +549,9 @@
 				250A03DE1D6EE507005F6886 /* YYPushPopAnimation.m in Sources */,
 				25DA60D81D58807100A526C4 /* MASViewConstraint.m in Sources */,
 				25754DAF1D548F29009EA9B7 /* YYViewController.m in Sources */,
-				254AF6911E9F80740031CE89 /* YYActionSheetTestController.m in Sources */,
 				25DA60D71D58807100A526C4 /* MASViewAttribute.m in Sources */,
 				258393D41D5DDD5A00980DBA /* YYScrollTabView.m in Sources */,
+				25154B411EA0B81000CB754F /* YYLaunchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

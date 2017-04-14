@@ -18,3 +18,7 @@
 
 ### 3. 自定义可点击、滑动的tab
 ![tabDemo](https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/scrollableTabView.gif)
+
+
+### 4. ActionSheet(类似微博的ActionSheet)
+![ActionSheet](https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/ActionSheet.gif)

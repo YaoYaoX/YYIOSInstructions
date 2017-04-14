@@ -7,7 +7,7 @@
      5. "应用名"的国际化请查看文件InfoPlist.strings
  */
 
-"Tab1"          = "Home";
+"Tab1"          = "ScrollableTab";
 "Tab2"          = "Demo";
 "Tab3"          = "Message";
 "Tab4"          = "Me";

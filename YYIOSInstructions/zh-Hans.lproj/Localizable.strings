@@ -9,7 +9,7 @@
  */
 
 
-"Tab1"          = "首页";
+"Tab1"          = "ScrollableTab";
 "Tab2"          = "示例";
 "Tab3"          = "信息";
 "Tab4"          = "个人中心";

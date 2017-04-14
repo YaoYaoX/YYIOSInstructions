@@ -1,5 +1,5 @@
 //
-//  YYDeomController.h
+//  YYDemoController.h
 //  YYIOSInstructions
 //
 //  Created by YaoYaoX on 16/8/25.
@@ -8,6 +8,6 @@
 
 #import "YYViewController.h"
 
-@interface YYDeomController : YYViewController
+@interface YYDemoController : YYViewController
 
 @end

@@ -11,7 +11,7 @@
 		250A03E41D6EE71D005F6886 /* YYTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03E31D6EE71D005F6886 /* YYTransitionDelegate.m */; };
 		250A03E71D6EE77F005F6886 /* YYPresentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03E61D6EE77F005F6886 /* YYPresentAnimation.m */; };
 		250A03ED1D6EF6C8005F6886 /* YYTransitionMainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03EC1D6EF6C8005F6886 /* YYTransitionMainNavController.m */; };
-		250A03F51D6EFB1A005F6886 /* YYDeomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03F41D6EFB1A005F6886 /* YYDeomController.m */; };
+		250A03F51D6EFB1A005F6886 /* YYDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03F41D6EFB1A005F6886 /* YYDemoController.m */; };
 		250A03F81D6EFE83005F6886 /* YYTransitionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A03F71D6EFE83005F6886 /* YYTransitionTestViewController.m */; };
 		25154B411EA0B81000CB754F /* YYLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B3F1EA0B81000CB754F /* YYLaunchViewController.m */; };
 		25154B421EA0B81000CB754F /* YYLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25154B401EA0B81000CB754F /* YYLaunchViewController.xib */; };
@@ -73,8 +73,8 @@
 		250A03E61D6EE77F005F6886 /* YYPresentAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPresentAnimation.m; sourceTree = "<group>"; };
 		250A03EB1D6EF6C8005F6886 /* YYTransitionMainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionMainNavController.h; sourceTree = "<group>"; };
 		250A03EC1D6EF6C8005F6886 /* YYTransitionMainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionMainNavController.m; sourceTree = "<group>"; };
-		250A03F31D6EFB1A005F6886 /* YYDeomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDeomController.h; sourceTree = "<group>"; };
-		250A03F41D6EFB1A005F6886 /* YYDeomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDeomController.m; sourceTree = "<group>"; };
+		250A03F31D6EFB1A005F6886 /* YYDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDemoController.h; sourceTree = "<group>"; };
+		250A03F41D6EFB1A005F6886 /* YYDemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDemoController.m; sourceTree = "<group>"; };
 		250A03F61D6EFE83005F6886 /* YYTransitionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionTestViewController.h; sourceTree = "<group>"; };
 		250A03F71D6EFE83005F6886 /* YYTransitionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionTestViewController.m; sourceTree = "<group>"; };
 		25154B3E1EA0B81000CB754F /* YYLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYLaunchViewController.h; path = "YYIOSInstructions/Main/LaunchVC(启动页)/YYLaunchViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -232,8 +232,8 @@
 				25754D511D54361F009EA9B7 /* AppDelegate.m */,
 				25754DAD1D548F29009EA9B7 /* YYViewController.h */,
 				25754DAE1D548F29009EA9B7 /* YYViewController.m */,
-				250A03F31D6EFB1A005F6886 /* YYDeomController.h */,
-				250A03F41D6EFB1A005F6886 /* YYDeomController.m */,
+				250A03F31D6EFB1A005F6886 /* YYDemoController.h */,
+				250A03F41D6EFB1A005F6886 /* YYDemoController.m */,
 				25754D8E1D5471FA009EA9B7 /* Main */,
 				25754D8D1D5471F1009EA9B7 /* Vender */,
 				25754D4D1D54361F009EA9B7 /* Supporting Files */,
@@ -536,7 +536,7 @@
 			files = (
 				25754DA11D5476D1009EA9B7 /* UIImage+Additions.m in Sources */,
 				25754D521D54361F009EA9B7 /* AppDelegate.m in Sources */,
-				250A03F51D6EFB1A005F6886 /* YYDeomController.m in Sources */,
+				250A03F51D6EFB1A005F6886 /* YYDemoController.m in Sources */,
 				25DA60D91D58807100A526C4 /* NSArray+MASAdditions.m in Sources */,
 				25154B551EA0BE8800CB754F /* YYPolygonViewController.m in Sources */,
 				25754D4F1D54361F009EA9B7 /* main.m in Sources */,

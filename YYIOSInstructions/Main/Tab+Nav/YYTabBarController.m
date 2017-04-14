@@ -29,18 +29,17 @@
     YYTabBar *tabbar = [[YYTabBar alloc]init];
     tabbar.delegate = self;
     [self setValue:tabbar forKey:@"tabBar"];
-
+    
+    
+    [self addChildVC:@"YYDemoController"
+            withIcon:@"yy_tab_2"
+        selectedIcon:@"yy_tab_2_selected"
+               title:kLocalString(@"Tab2")];
     
     [self addChildVC:@"YYScrollTabTestController"
             withIcon:@"yy_tab_1"
         selectedIcon:@"yy_tab_1_selected"
                title:kLocalString(@"Tab1")];
-    
-    
-    [self addChildVC:@"YYDeomController"
-            withIcon:@"yy_tab_2"
-        selectedIcon:@"yy_tab_2_selected"
-               title:kLocalString(@"Tab2")];
     
 //    // 占位
 //    [self addChildViewController:[[UIViewController alloc] init]];

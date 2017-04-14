@@ -1,36 +1,37 @@
 //
-//  YYDeomController.m
+//  YYDemoController.m
 //  YYIOSInstructions
 //
 //  Created by YaoYaoX on 16/8/25.
 //  Copyright © 2016年 YY. All rights reserved.
 //
 
-#import "YYDeomController.h"
+#import "YYDemoController.h"
 #import "YYTransitionMainNavController.h"
 #import "YYTransitionTestViewController.h"
 
 static NSString *ID = @"reuseIdentifier";
 
-@interface YYDeomController ()
+@interface YYDemoController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *data;
 
 @end
 
-@implementation YYDeomController
+@implementation YYDemoController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = @[@{@"title":@"转场动画"},
+    self.data = @[//@{@"title":@"转场动画"},
                   @{@"title":@"ActionSheet", @"class":@"YYActionSheetTestController"},
                   @{@"title":@"多边形", @"class":@"YYPolygonViewController"}];
 
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight)];
     tableView.backgroundColor = [UIColor whiteColor];
-    tableView.dataSource = (id<UITableViewDataSource>)self;
-    tableView.delegate = (id<UITableViewDelegate>)self;
+    tableView.dataSource = self;
+    tableView.delegate = self;
     tableView.rowHeight = 60;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     [self.view addSubview:tableView];

@@ -19,10 +19,10 @@ typedef void(^YYItemAction)();
 
 @interface YYActionItem : UIView
 
-@property (nonatomic, copy) YYItemAction actionBlock;
-@property (nonatomic, readonly) YYActionItemType type;
-@property (nonatomic, assign) BOOL hideLine;
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, readonly) YYActionItemType    type;
+@property (nonatomic, copy)     YYItemAction        actionBlock;
+@property (nonatomic, copy)     NSString            *title;
+@property (nonatomic, assign)   BOOL                hideLine;
 
 - (instancetype)initWithTitle:(NSString *)title type:(YYActionItemType)type action:(YYItemAction)action;
 

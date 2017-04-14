@@ -11,9 +11,9 @@
 
 @interface YYActionItem ()
 
-@property (nonatomic, assign) YYActionItemType innerType;
-@property (nonatomic, weak) UIView *lineView;
-@property (nonatomic, weak) UIButton *button;
+@property (nonatomic, assign) YYActionItemType  innerType;
+@property (nonatomic, weak)   UIView            *lineView;
+@property (nonatomic, weak)   UIButton          *button;
 
 @end
 

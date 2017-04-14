@@ -9,15 +9,7 @@
 #import "YYActionSheetTestController.h"
 #import "YYActionSheetView.h"
 
-@interface YYActionSheetTestController ()
-
-@end
-
 @implementation YYActionSheetTestController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
 
 - (void)setupSubviews{
     UIButton *showBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];

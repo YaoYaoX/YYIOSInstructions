@@ -11,7 +11,7 @@
 @interface YYCoverView : UIView
 
 @property (nonatomic, readonly) UIView *contentView;
-@property (nonatomic, assign) BOOL   dismissWhenTap;
+@property (nonatomic, assign)   BOOL   dismissWhenTap;
 
 - (void)show;
 - (void)dismiss;

@@ -19,6 +19,8 @@
 		25154B4C1EA0B82100CB754F /* YYActionSheetTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B461EA0B82100CB754F /* YYActionSheetTestController.m */; };
 		25154B4D1EA0B82100CB754F /* YYActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B481EA0B82100CB754F /* YYActionSheetView.m */; };
 		25154B4E1EA0B82100CB754F /* YYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B4A1EA0B82100CB754F /* YYCoverView.m */; };
+		25154B551EA0BE8800CB754F /* YYPolygonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B541EA0BE8800CB754F /* YYPolygonViewController.m */; };
+		25154B581EA0BEBB00CB754F /* YYPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 25154B571EA0BEBB00CB754F /* YYPolygon.m */; };
 		253F47191D81657A007FF85B /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 253F47181D81657A007FF85B /* NSString+URL.m */; };
 		25754D4F1D54361F009EA9B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754D4E1D54361F009EA9B7 /* main.m */; };
 		25754D521D54361F009EA9B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25754D511D54361F009EA9B7 /* AppDelegate.m */; };
@@ -86,6 +88,10 @@
 		25154B481EA0B82100CB754F /* YYActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYActionSheetView.m; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYActionSheetView.m"; sourceTree = SOURCE_ROOT; };
 		25154B491EA0B82100CB754F /* YYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYCoverView.h; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYCoverView.h"; sourceTree = SOURCE_ROOT; };
 		25154B4A1EA0B82100CB754F /* YYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYCoverView.m; path = "YYIOSInstructions/Main/ActionSheet(类似微博的弹出框)/YYCoverView.m"; sourceTree = SOURCE_ROOT; };
+		25154B531EA0BE8800CB754F /* YYPolygonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPolygonViewController.h; sourceTree = "<group>"; };
+		25154B541EA0BE8800CB754F /* YYPolygonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPolygonViewController.m; sourceTree = "<group>"; };
+		25154B561EA0BEBB00CB754F /* YYPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPolygon.h; sourceTree = "<group>"; };
+		25154B571EA0BEBB00CB754F /* YYPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPolygon.m; sourceTree = "<group>"; };
 		253F47171D81657A007FF85B /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
 		253F47181D81657A007FF85B /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
 		25754D4A1D54361F009EA9B7 /* YYIOSInstructions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYIOSInstructions.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +180,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25154B4F1EA0BD8E00CB754F /* Polygon(可转动的多边形) */ = {
+			isa = PBXGroup;
+			children = (
+				25154B561EA0BEBB00CB754F /* YYPolygon.h */,
+				25154B571EA0BEBB00CB754F /* YYPolygon.m */,
+				25154B531EA0BE8800CB754F /* YYPolygonViewController.h */,
+				25154B541EA0BE8800CB754F /* YYPolygonViewController.m */,
+			);
+			path = "Polygon(可转动的多边形)";
+			sourceTree = "<group>";
+		};
 		254AF6851E9F4FDA0031CE89 /* ActionSheet(类似微博的弹出框) */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +276,7 @@
 		25754D8E1D5471FA009EA9B7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				25154B4F1EA0BD8E00CB754F /* Polygon(可转动的多边形) */,
 				254AF6851E9F4FDA0031CE89 /* ActionSheet(类似微博的弹出框) */,
 				258DB66A1D6EBF8800F33CAC /* Transition(自定义转场动画) */,
 				258393CB1D5DC6D800980DBA /* ScrollTab(可滑动的Tab) */,
@@ -520,6 +538,7 @@
 				25754D521D54361F009EA9B7 /* AppDelegate.m in Sources */,
 				250A03F51D6EFB1A005F6886 /* YYDeomController.m in Sources */,
 				25DA60D91D58807100A526C4 /* NSArray+MASAdditions.m in Sources */,
+				25154B551EA0BE8800CB754F /* YYPolygonViewController.m in Sources */,
 				25754D4F1D54361F009EA9B7 /* main.m in Sources */,
 				25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */,
 				25A863621D95367500C56883 /* YYTransitionMainController.m in Sources */,
@@ -529,6 +548,7 @@
 				258393CE1D5DC74800980DBA /* YYScrollTabBar.m in Sources */,
 				25DA60DB1D58807100A526C4 /* View+MASAdditions.m in Sources */,
 				25154B4B1EA0B82100CB754F /* YYActionItem.m in Sources */,
+				25154B581EA0BEBB00CB754F /* YYPolygon.m in Sources */,
 				25DA60D61D58807100A526C4 /* MASLayoutConstraint.m in Sources */,
 				258393D11D5DC7AE00980DBA /* UIColor+Additions.m in Sources */,
 				25DA60DF1D5882EB00A526C4 /* YYNavigationController.m in Sources */,

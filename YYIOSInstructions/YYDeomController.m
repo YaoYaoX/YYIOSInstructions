@@ -24,7 +24,8 @@ static NSString *ID = @"reuseIdentifier";
     [super viewDidLoad];
     
     self.data = @[@{@"title":@"转场动画"},
-                  @{@"title":@"ActionSheet", @"class":@"YYActionSheetTestController"}];
+                  @{@"title":@"ActionSheet", @"class":@"YYActionSheetTestController"},
+                  @{@"title":@"多边形", @"class":@"YYPolygonViewController"}];
 
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight)];
     tableView.backgroundColor = [UIColor whiteColor];
@@ -58,7 +59,9 @@ static NSString *ID = @"reuseIdentifier";
     NSString *classStr = self.data[indexPath.row][@"class"];
     if (classStr) {
         id contrller = [[NSClassFromString(classStr) alloc] init];
-        [self.navigationController pushViewController:contrller animated:YES];
+        if([contrller isKindOfClass:[UIViewController class]]){
+            [self.navigationController pushViewController:contrller animated:YES];
+        }
     }
 
 }

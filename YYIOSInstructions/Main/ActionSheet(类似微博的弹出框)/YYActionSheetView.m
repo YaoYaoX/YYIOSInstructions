@@ -14,10 +14,10 @@
 
 @interface YYActionSheetView ()
 
-@property (nonatomic, strong) NSMutableArray *cancleItems;
-@property (nonatomic, strong) NSMutableArray *normalItems;
-@property (nonatomic, weak) YYActionItem *titleItem;
-@property (nonatomic, assign) CGFloat contentHeight;
+@property (nonatomic, strong) NSMutableArray    *cancleItems;
+@property (nonatomic, strong) NSMutableArray    *normalItems;
+@property (nonatomic, assign) CGFloat           contentHeight;
+@property (nonatomic, weak)   YYActionItem      *titleItem;
 
 @end
 

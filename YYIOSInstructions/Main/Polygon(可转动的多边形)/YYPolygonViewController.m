@@ -8,7 +8,6 @@
 
 #import "YYPolygonViewController.h"
 #import "YYPolygon.h"
-#import "YYDashView.h"
 
 @implementation YYPolygonViewController
 
@@ -41,10 +40,6 @@
     another.rotateNum = 3;
     another.backgroundColor = [UIColor grayColorWithValue:200];
     [self.view addSubview:another];
-    
-    YYDashView *dashview = [[YYDashView alloc] initWithFrame:CGRectMake(margin, top+wh*2+3*margin, 200, 40)];
-    [self.view addSubview:dashview];
-    [dashview doAnimation];
 }
 
 @end

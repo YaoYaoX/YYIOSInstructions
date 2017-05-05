@@ -27,6 +27,7 @@ static NSString *ID = @"reuseIdentifier";
     self.data = @[//@{@"title":@"转场动画"},
                   @{@"title":@"ActionSheet", @"class":@"YYActionSheetTestController"},
                   @{@"title":@"多边形", @"class":@"YYPolygonViewController"},
+                  @{@"title":@"传感器", @"class":@"YYSensorViewController"},
                   @{@"title":@"自定义View", @"class":@"YYCustomViewController"}];
 
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight)];
@@ -62,6 +63,7 @@ static NSString *ID = @"reuseIdentifier";
     if (classStr) {
         id contrller = [[NSClassFromString(classStr) alloc] init];
         if([contrller isKindOfClass:[UIViewController class]]){
+            ((UIViewController *)contrller).title = self.data[indexPath.row][@"title"];
             [self.navigationController pushViewController:contrller animated:YES];
         }
     }

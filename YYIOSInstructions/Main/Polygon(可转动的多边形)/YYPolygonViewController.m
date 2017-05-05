@@ -19,12 +19,14 @@
     
     YYPolygon *hexagon = [[YYPolygon alloc] initWithFrame:CGRectMake(margin, top+margin, wh, wh)];
     hexagon.backgroundColor = [UIColor grayColorWithValue:200];
+    [hexagon rotateToIndex:1];
     [self.view addSubview:hexagon];
     
     
     YYPolygon *heptagon = [[YYPolygon alloc] initWithFrame:CGRectMake(wh+2*margin, top+margin, wh, wh)];
     heptagon.numberOfSide = 7;
     heptagon.backgroundColor = [UIColor grayColorWithValue:200];
+    [heptagon rotateToIndex:2];
     [self.view addSubview:heptagon];
     
     

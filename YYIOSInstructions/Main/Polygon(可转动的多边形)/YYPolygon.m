@@ -17,8 +17,10 @@
 @property (nonatomic, weak)     CAShapeLayer            *polygonLayer;
 @property (nonatomic, weak)     UIPanGestureRecognizer  *panGesture;
 @property (nonatomic, assign)   CGAffineTransform       lastTransform;
-@property (nonatomic, readonly) CGFloat                 angleBase;         // 每个角的度数
-@property (nonatomic, readonly) CGFloat                 rotateAnagle;      // 每次转动的度数
+/// 每个角的度数
+@property (nonatomic, readonly) CGFloat                 angleBase;
+/// 每次转动的度数
+@property (nonatomic, readonly) CGFloat                 rotateAnagle;
 
 @end
 
@@ -196,6 +198,16 @@
     }
     _rotateNum = rotateNum;
     _rotateAnagle = rotateNum*self.angleBase;
+}
+
+- (void)rotateToIndex:(NSUInteger)index {
+    CGFloat angle = (index * self.rotateAnagle);
+    angle = angle - (NSUInteger)(angle/(2*M_PI)) * (2*M_PI);
+    __weak typeof (self) weakSelf = self;
+    [UIView animateWithDuration:2 animations:^{
+        weakSelf.polygonView.transform = CGAffineTransformMakeRotation(-angle);
+    } completion:nil];
+
 }
 
 @end

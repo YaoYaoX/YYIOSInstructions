@@ -10,6 +10,10 @@
 
 @interface YYPolygon : UIView
 
-@property (nonatomic, assign) NSUInteger numberOfSide; // 边数
-@property (nonatomic, assign) NSUInteger rotateNum;    // 每次旋转时转动的角个数
+/// 边数
+@property (nonatomic, assign) NSUInteger numberOfSide;
+/// 每次旋转时转动的角个数
+@property (nonatomic, assign) NSUInteger rotateNum;
+
+- (void)rotateToIndex:(NSUInteger)index;
 @end

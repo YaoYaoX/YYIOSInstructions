@@ -36,6 +36,8 @@
 		258393CE1D5DC74800980DBA /* YYScrollTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393CD1D5DC74800980DBA /* YYScrollTabBar.m */; };
 		258393D11D5DC7AE00980DBA /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393D01D5DC7AE00980DBA /* UIColor+Additions.m */; };
 		258393D41D5DDD5A00980DBA /* YYScrollTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393D31D5DDD5A00980DBA /* YYScrollTabView.m */; };
+		258EC0431EBC627A0097F289 /* YYSensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 258EC0411EBC627A0097F289 /* YYSensorViewController.m */; };
+		258EC0441EBC627A0097F289 /* YYSensorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258EC0421EBC627A0097F289 /* YYSensorViewController.xib */; };
 		25A863621D95367500C56883 /* YYTransitionMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A863611D95367500C56883 /* YYTransitionMainController.m */; };
 		25B3EFA41EA9FC85007D9D38 /* YYCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B3EFA31EA9FC85007D9D38 /* YYCustomViewController.m */; };
 		25B3EFA71EA9FCB8007D9D38 /* YYDashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B3EFA61EA9FCB8007D9D38 /* YYDashView.m */; };
@@ -125,6 +127,9 @@
 		258393D01D5DC7AE00980DBA /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		258393D21D5DDD5A00980DBA /* YYScrollTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYScrollTabView.h; sourceTree = "<group>"; };
 		258393D31D5DDD5A00980DBA /* YYScrollTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYScrollTabView.m; sourceTree = "<group>"; };
+		258EC0401EBC627A0097F289 /* YYSensorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSensorViewController.h; sourceTree = "<group>"; };
+		258EC0411EBC627A0097F289 /* YYSensorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSensorViewController.m; sourceTree = "<group>"; };
+		258EC0421EBC627A0097F289 /* YYSensorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYSensorViewController.xib; sourceTree = "<group>"; };
 		25A863601D95367500C56883 /* YYTransitionMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionMainController.h; sourceTree = "<group>"; };
 		25A863611D95367500C56883 /* YYTransitionMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionMainController.m; sourceTree = "<group>"; };
 		25B3EFA21EA9FC85007D9D38 /* YYCustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYCustomViewController.h; path = "YYIOSInstructions/Main/CustomView(自定义视图)/YYCustomViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -282,6 +287,7 @@
 		25754D8E1D5471FA009EA9B7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				258EC03C1EBC5C250097F289 /* Sensor(传感器:需真机测试) */,
 				25154B4F1EA0BD8E00CB754F /* Polygon(可转动的多边形) */,
 				254AF6851E9F4FDA0031CE89 /* ActionSheet(类似微博的弹出框) */,
 				258DB66A1D6EBF8800F33CAC /* Transition(自定义转场动画) */,
@@ -406,6 +412,17 @@
 			path = Transition;
 			sourceTree = "<group>";
 		};
+		258EC03C1EBC5C250097F289 /* Sensor(传感器:需真机测试) */ = {
+			isa = PBXGroup;
+			children = (
+				258EC0401EBC627A0097F289 /* YYSensorViewController.h */,
+				258EC0411EBC627A0097F289 /* YYSensorViewController.m */,
+				258EC0421EBC627A0097F289 /* YYSensorViewController.xib */,
+			);
+			name = "Sensor(传感器:需真机测试)";
+			path = "Sensor(传感器)";
+			sourceTree = "<group>";
+		};
 		25DA60B91D58807100A526C4 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +505,7 @@
 				TargetAttributes = {
 					25754D491D54361F009EA9B7 = {
 						CreatedOnToolsVersion = 7.3;
+						ProvisioningStyle = Automatic;
 					};
 					25754D621D54361F009EA9B7 = {
 						CreatedOnToolsVersion = 7.3;
@@ -526,6 +544,7 @@
 				25DA60B51D587B8600A526C4 /* InfoPlist.strings in Resources */,
 				25754DBA1D54A518009EA9B7 /* Localizable.strings in Resources */,
 				25754DA61D54871A009EA9B7 /* Assets.xcassets in Resources */,
+				258EC0441EBC627A0097F289 /* YYSensorViewController.xib in Resources */,
 				25DA60EB1D588E4400A526C4 /* middleImg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,6 +570,7 @@
 				25154B551EA0BE8800CB754F /* YYPolygonViewController.m in Sources */,
 				25754D4F1D54361F009EA9B7 /* main.m in Sources */,
 				25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */,
+				258EC0431EBC627A0097F289 /* YYSensorViewController.m in Sources */,
 				25B3EFA41EA9FC85007D9D38 /* YYCustomViewController.m in Sources */,
 				25A863621D95367500C56883 /* YYTransitionMainController.m in Sources */,
 				25154B4D1EA0B82100CB754F /* YYActionSheetView.m in Sources */,
@@ -721,13 +741,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = YYIOSInstructions/PrefixHeader.pch;
 				INFOPLIST_FILE = YYIOSInstructions/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YY.YYIOSInstructions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -735,13 +758,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = YYIOSInstructions/PrefixHeader.pch;
 				INFOPLIST_FILE = YYIOSInstructions/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YY.YYIOSInstructions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

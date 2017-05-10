@@ -20,6 +20,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>需要你的授权才能拍照</string>
 	<key>NSMotionUsageDescription</key>
 	<string>需要你的授权才能获取运动信息</string>
 	<key>UILaunchStoryboardName</key>

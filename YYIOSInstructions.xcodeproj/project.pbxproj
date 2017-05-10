@@ -38,11 +38,13 @@
 		258393D41D5DDD5A00980DBA /* YYScrollTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 258393D31D5DDD5A00980DBA /* YYScrollTabView.m */; };
 		258EC0431EBC627A0097F289 /* YYSensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 258EC0411EBC627A0097F289 /* YYSensorViewController.m */; };
 		258EC0441EBC627A0097F289 /* YYSensorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258EC0421EBC627A0097F289 /* YYSensorViewController.xib */; };
+		25A3FE071EC06C74004C25B6 /* shake.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A3FE061EC06C74004C25B6 /* shake.png */; };
 		25A863621D95367500C56883 /* YYTransitionMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A863611D95367500C56883 /* YYTransitionMainController.m */; };
 		25B3EFA41EA9FC85007D9D38 /* YYCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B3EFA31EA9FC85007D9D38 /* YYCustomViewController.m */; };
 		25B3EFA71EA9FCB8007D9D38 /* YYDashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B3EFA61EA9FCB8007D9D38 /* YYDashView.m */; };
 		25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BBBB911D65C26F0011D9AF /* YYScrollTabTestController.m */; };
 		25BF121C1D96326A000352CA /* YYSwipInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BF121B1D96326A000352CA /* YYSwipInteractiveTransition.m */; };
+		25CBE2321EC0746100C8FE64 /* SantaClaus.png in Resources */ = {isa = PBXBuildFile; fileRef = 25CBE2311EC0746100C8FE64 /* SantaClaus.png */; };
 		25DA60B51D587B8600A526C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25DA60B71D587B8600A526C4 /* InfoPlist.strings */; };
 		25DA60D31D58807100A526C4 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DA60BB1D58807100A526C4 /* MASCompositeConstraint.m */; };
 		25DA60D41D58807100A526C4 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DA60BE1D58807100A526C4 /* MASConstraint.m */; };
@@ -130,6 +132,7 @@
 		258EC0401EBC627A0097F289 /* YYSensorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSensorViewController.h; sourceTree = "<group>"; };
 		258EC0411EBC627A0097F289 /* YYSensorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSensorViewController.m; sourceTree = "<group>"; };
 		258EC0421EBC627A0097F289 /* YYSensorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYSensorViewController.xib; sourceTree = "<group>"; };
+		25A3FE061EC06C74004C25B6 /* shake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shake.png; sourceTree = "<group>"; };
 		25A863601D95367500C56883 /* YYTransitionMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionMainController.h; sourceTree = "<group>"; };
 		25A863611D95367500C56883 /* YYTransitionMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionMainController.m; sourceTree = "<group>"; };
 		25B3EFA21EA9FC85007D9D38 /* YYCustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYCustomViewController.h; path = "YYIOSInstructions/Main/CustomView(自定义视图)/YYCustomViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -141,6 +144,7 @@
 		25BF121A1D96326A000352CA /* YYSwipInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSwipInteractiveTransition.h; sourceTree = "<group>"; };
 		25BF121B1D96326A000352CA /* YYSwipInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSwipInteractiveTransition.m; sourceTree = "<group>"; };
 		25BF121D1D9632EE000352CA /* YYTransitonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTransitonDefine.h; sourceTree = "<group>"; };
+		25CBE2311EC0746100C8FE64 /* SantaClaus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SantaClaus.png; sourceTree = "<group>"; };
 		25DA60B61D587B8600A526C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		25DA60B81D587B8800A526C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25DA60BA1D58807100A526C4 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -415,6 +419,8 @@
 		258EC03C1EBC5C250097F289 /* Sensor(传感器:需真机测试) */ = {
 			isa = PBXGroup;
 			children = (
+				25CBE2311EC0746100C8FE64 /* SantaClaus.png */,
+				25A3FE061EC06C74004C25B6 /* shake.png */,
 				258EC0401EBC627A0097F289 /* YYSensorViewController.h */,
 				258EC0411EBC627A0097F289 /* YYSensorViewController.m */,
 				258EC0421EBC627A0097F289 /* YYSensorViewController.xib */,
@@ -539,8 +545,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25A3FE071EC06C74004C25B6 /* shake.png in Resources */,
 				25754D5D1D54361F009EA9B7 /* LaunchScreen.storyboard in Resources */,
 				25154B421EA0B81000CB754F /* YYLaunchViewController.xib in Resources */,
+				25CBE2321EC0746100C8FE64 /* SantaClaus.png in Resources */,
 				25DA60B51D587B8600A526C4 /* InfoPlist.strings in Resources */,
 				25754DBA1D54A518009EA9B7 /* Localizable.strings in Resources */,
 				25754DA61D54871A009EA9B7 /* Assets.xcassets in Resources */,

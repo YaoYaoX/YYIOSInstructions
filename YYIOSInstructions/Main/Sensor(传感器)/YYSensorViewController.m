@@ -8,15 +8,22 @@
 
 #import "YYSensorViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface YYSensorViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *pedometerEnableBtn;
 @property (weak, nonatomic) IBOutlet UIButton *accelerationEnableBtn;
 @property (weak, nonatomic) IBOutlet UIButton *gyroEnableBtn;
 @property (weak, nonatomic) IBOutlet UIButton *proximityEnableBtn;
+@property (weak, nonatomic) IBOutlet UIButton *magnetEnableBtn;
 
+// 光线
+@property (weak, nonatomic) IBOutlet UIView *lightVideo;
+
+// 距离传感器
 @property (weak, nonatomic) IBOutlet UISwitch *proximitySwitch;
 
+// 计步器
 @property (weak, nonatomic) IBOutlet UILabel  *pedometerStartLbl;
 @property (weak, nonatomic) IBOutlet UILabel  *pedometerEndLbl;
 @property (weak, nonatomic) IBOutlet UILabel  *pedometerNowLbl;
@@ -25,15 +32,27 @@
 @property (weak, nonatomic) IBOutlet UILabel  *pedometerSpeedLbl;
 
 
+// 加速计
 @property (weak, nonatomic) IBOutlet UILabel *accelerationXLbl;
 @property (weak, nonatomic) IBOutlet UILabel *accelerationYLbl;
 @property (weak, nonatomic) IBOutlet UILabel *accelerationZLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *shakeImgV;
+@property (weak, nonatomic) IBOutlet UIImageView *santaClausImgV;
 
+// 陀螺仪
+@property (weak, nonatomic) IBOutlet UILabel *gyroXLbl;
+@property (weak, nonatomic) IBOutlet UILabel *gyroYLbl;
+@property (weak, nonatomic) IBOutlet UILabel *gyroZLbl;
 @property (weak, nonatomic) IBOutlet UILabel *gyroRateLbl;
 
+// 磁力计
+@property (weak, nonatomic) IBOutlet UILabel *magnetXLbl;
+@property (weak, nonatomic) IBOutlet UILabel *magnetYLbl;
+@property (weak, nonatomic) IBOutlet UILabel *magnetZLbl;
+
+// 其他
 @property (nonatomic, strong) CMMotionManager *motionManage;
 @property (nonatomic, strong) CMPedometer     *pedometer;
-@property (nonatomic, assign) CMAcceleration  currentAcceleration;
 
 @end
 
@@ -53,10 +72,10 @@
 - (void)initSensor {
     
     self.motionManage = [[CMMotionManager alloc] init];
-    // 控制加速计更新间隔
-    self.motionManage.accelerometerUpdateInterval = 0.5;
-    // 控制陀螺仪更新间隔
+    // 控制传感器的更新间隔
+    self.motionManage.accelerometerUpdateInterval = 0.2;
     self.motionManage.gyroUpdateInterval = 0.5;
+    self.motionManage.magnetometerUpdateInterval = 0.5;
     
     self.pedometer = [[CMPedometer alloc] init];
 }
@@ -78,12 +97,50 @@
     
     // 陀螺仪
     self.gyroEnableBtn.enabled = self.motionManage.isGyroAvailable;
+    
+    // 磁力计
+    self.magnetEnableBtn.enabled = self.motionManage.isMagnetometerAvailable;
 }
 
 - (void)showWithTitle:(NSString *)title message:(NSString *)message{
     UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [ac addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:ac animated:YES completion:nil];
+}
+
+#pragma makr - 光线检测
+
+- (void)capture{
+    
+    NSError *error;
+    AVCaptureSession *captureSession = [AVCaptureSession new];
+    AVCaptureDevice *cameraDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    AVCaptureDeviceInput *cameraDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:cameraDevice error:&error];
+    if ([captureSession canAddInput:cameraDeviceInput]) {
+        [captureSession addInput:cameraDeviceInput];
+    }
+    [captureSession startRunning];
+    
+    
+    CMTime frameDuration = CMTimeMake(1, 60);
+    NSArray *supportedFrameRateRanges = [cameraDevice.activeFormat videoSupportedFrameRateRanges];
+    BOOL frameRateSupported = NO;
+    for (AVFrameRateRange *range in supportedFrameRateRanges) {
+        if (CMTIME_COMPARE_INLINE(frameDuration, >=, range.minFrameDuration) &&
+            CMTIME_COMPARE_INLINE(frameDuration, <=, range.maxFrameDuration)) {
+            frameRateSupported = YES;
+        }
+    }
+    if (frameRateSupported && [cameraDevice lockForConfiguration:&error]) {
+        [cameraDevice setActiveVideoMaxFrameDuration:frameDuration];
+        [cameraDevice setActiveVideoMinFrameDuration:frameDuration];
+        [cameraDevice unlockForConfiguration];
+    }
+
+    AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
+    previewLayer.frame = self.lightVideo.bounds;
+
+    [self.lightVideo.layer addSublayer:previewLayer];
 }
 
 #pragma mark - 距离传感器
@@ -125,9 +182,11 @@
     [self.pedometer stopPedometerUpdates];
     [self.pedometer stopPedometerEventUpdates];
     
-    // 加速计、陀螺仪
+    // 加速计、陀螺仪、磁力计
     [self.motionManage stopAccelerometerUpdates];
     [self.motionManage stopGyroUpdates];
+    [self.motionManage stopMagnetometerUpdates];
+    [self.motionManage stopDeviceMotionUpdates];
 }
 
 #pragma mark - 计步器
@@ -203,39 +262,154 @@
         // 更新比较频繁，建议不使用主线程
         __weak typeof (self) weakSelf = self;
         [self.motionManage startAccelerometerUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
-            
-            CGFloat x = accelerometerData.acceleration.x;
-            CGFloat y = accelerometerData.acceleration.y;
-            CGFloat z = accelerometerData.acceleration.z;
-            BOOL changedX = fabs(weakSelf.currentAcceleration.x - x) >=0.1;
-            BOOL changedY = fabs(weakSelf.currentAcceleration.y - y) >=0.1;
-            BOOL changedZ = fabs(weakSelf.currentAcceleration.z - z) >=0.1;
-            
-            // 数据更新比较敏感，只在变化在一定范围内再更新界面上的数据
-            if (changedX || changedY || changedZ) {
-                CMAcceleration acceleration = {x, y, z};
-                weakSelf.currentAcceleration = acceleration;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    weakSelf.accelerationXLbl.text = [NSString stringWithFormat:@"%.2f", accelerometerData.acceleration.x];
-                    weakSelf.accelerationYLbl.text = [NSString stringWithFormat:@"%.2f", accelerometerData.acceleration.y];
-                    weakSelf.accelerationZLbl.text = [NSString stringWithFormat:@"%.2f", accelerometerData.acceleration.z];
-                });
-            }
+            // 回到主线程
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                NSLog(@"%f",[UIScreen mainScreen].brightness);
+                
+                weakSelf.accelerationXLbl.text = [NSString stringWithFormat:@"%.2f", accelerometerData.acceleration.x];
+                weakSelf.accelerationYLbl.text = [NSString stringWithFormat:@"%.2f", accelerometerData.acceleration.y];
+                weakSelf.accelerationZLbl.text = [NSString stringWithFormat:@"%.2f", accelerometerData.acceleration.z];
+                
+                [UIView animateWithDuration:0.02 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionAllowUserInteraction animations:^{
+                    
+                    CGFloat x = accelerometerData.acceleration.x;
+                    CGFloat y = accelerometerData.acceleration.y;
+                    if(y<0){
+                        weakSelf.santaClausImgV.transform = CGAffineTransformMakeRotation(-x*M_PI_2);
+                    
+                    } else {
+                        weakSelf.santaClausImgV.transform = CGAffineTransformMakeRotation(-M_PI_2-(1-x)*M_PI_2);
+                    }
+                } completion:nil];
+            });
         }];
+    } else {
+        sender.selected = NO;
+        [self.motionManage stopAccelerometerUpdates];
+    }
+}
+
+#pragma mark 自带的通过加速计检测摇一摇
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    NSLog(@"motionBegan");
+}
+
+- (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    NSLog(@"motionCancelled ");
+}
+
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    NSLog(@"motionEnded");
+    CAKeyframeAnimation *ani = [[CAKeyframeAnimation alloc] init];
+    ani.values = @[@-M_PI_4,@M_PI_4,@-M_PI_4,@M_PI_4,@-M_PI_4,@M_PI_4];
+    ani.duration = 0.25;
+    ani.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    [self.shakeImgV.layer addAnimation:ani forKey:@"transform.rotation"];
+}
+
+#pragma mark - 陀螺仪
+
+- (IBAction)gyroTest:(UIButton *)sender {
+    
+    BOOL start = !sender.selected;
+    if (start) {
         
-        [self.motionManage startGyroUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMGyroData * _Nullable gyroData, NSError * _Nullable error) {
-            NSLog(@"x:%.2f  y:%.2f  z:%.2f",gyroData.rotationRate.x, gyroData.rotationRate.y, gyroData.rotationRate.z);
+        // 可用性检测
+        if(![self.motionManage isAccelerometerAvailable]){
+            [self showWithTitle:@"陀螺仪不可用" message:nil];
+            return;
+        }
+        
+        sender.selected = YES;
+        
+        __weak typeof (self) weakSelf = self;
+        [self.motionManage startGyroUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMGyroData * _Nullable gyroData, NSError * _Nullable error) {
+            
             CGFloat x = gyroData.rotationRate.x;
             CGFloat y = gyroData.rotationRate.y;
             CGFloat z = gyroData.rotationRate.z;
             CGFloat rate = sqrt(x*x + y*y + z*z);
-            weakSelf.gyroRateLbl.text = [NSString stringWithFormat:@"%.2f", rate];
+            // 回到主线程
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.gyroXLbl.text = [NSString stringWithFormat:@"%.2f", x];
+                weakSelf.gyroYLbl.text = [NSString stringWithFormat:@"%.2f", y];
+                weakSelf.gyroZLbl.text = [NSString stringWithFormat:@"%.2f", z];
+                weakSelf.gyroRateLbl.text = [NSString stringWithFormat:@"%.2f", rate];
+            });
         }];
         
     } else {
         sender.selected = NO;
-        [self.motionManage stopAccelerometerUpdates];
         [self.motionManage stopGyroUpdates];
+    }
+}
+
+#pragma mark -  磁力
+
+- (IBAction)magnetTest:(UIButton *)sender {
+    
+    BOOL start = !sender.selected;
+    if (start) {
+        
+        // 可用性检测
+        if(![self.motionManage isMagnetometerAvailable]){
+            [self showWithTitle:@"磁力计不可用" message:nil];
+            return;
+        }
+        
+        sender.selected = YES;
+        
+        __weak typeof (self) weakSelf = self;
+        [self.motionManage startMagnetometerUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMMagnetometerData * _Nullable magnetometerData, NSError * _Nullable error) {
+            
+            CGFloat x = magnetometerData.magneticField.x;
+            CGFloat y = magnetometerData.magneticField.y;
+            CGFloat z = magnetometerData.magneticField.z;
+
+            // 回到主线程
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.magnetXLbl.text = [NSString stringWithFormat:@"%.2f", x];
+                weakSelf.magnetYLbl.text = [NSString stringWithFormat:@"%.2f", y];
+                weakSelf.magnetZLbl.text = [NSString stringWithFormat:@"%.2f", z];
+            });
+        }];
+        
+    } else {
+        sender.selected = NO;
+        [self.motionManage stopMagnetometerUpdates];
+    }
+}
+
+#pragma mark -  综合
+
+- (IBAction)motionTest:(UIButton *)sender {
+    
+    BOOL start = !sender.selected;
+    if (start) {
+        
+        // 检测加速计和陀螺仪，由于设备都有加速计，所以等效于陀螺仪检测
+        if(![self.motionManage isDeviceMotionAvailable]){
+            return;
+        }
+        
+        sender.selected = YES;
+        
+        // 获取的数据综合了加速计、陀螺仪、磁力计
+        [self.motionManage startDeviceMotionUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+            // 数据处理
+            /*
+            CMAttitude *attitude =  motion.attitude;
+            CMRotationRate rotationRate = motion.rotationRate;
+            CMCalibratedMagneticField magnet = motion.magneticField;
+            CMAcceleration gravity = motion.gravity;
+            CMAcceleration userAcceleration = motion.userAcceleration;
+             */
+        }];
+        
+    } else {
+        sender.selected = NO;
+        [self.motionManage stopDeviceMotionUpdates];
     }
 }
 

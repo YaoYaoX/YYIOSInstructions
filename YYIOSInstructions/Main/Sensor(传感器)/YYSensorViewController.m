@@ -58,7 +58,6 @@
 @property (nonatomic, strong) CMMotionManager   *motionManage;
 @property (nonatomic, strong) CMPedometer       *pedometer;
 @property (nonatomic, strong) AVCaptureSession  *captureSession;
-@property (nonatomic, strong) NSTimer           *brightnessTimer;
 
 @end
 
@@ -111,10 +110,6 @@
 - (void)dealloc{
     
     // 光线
-    if(self.brightnessTimer) {
-        [self.brightnessTimer invalidate];
-        self.brightnessTimer = nil;
-    }
     if(_captureSession){
         [self.captureSession stopRunning];
         self.captureSession = nil;
@@ -176,15 +171,20 @@
 - (IBAction)screenBrightnessTest:(UIButton *)sender {
     if (!sender.selected) {
         sender.selected = YES;
-        __weak typeof (self) weakSelf = self;
-        self.brightnessTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
-            weakSelf.screenBightnessLbl.text = [NSString stringWithFormat:@"%.2f",[UIScreen mainScreen].brightness];
-        }];
+        self.screenBightnessLbl.text = [NSString stringWithFormat:@"%.2f",[UIScreen mainScreen].brightness];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(brightnessChangeNoti:) name:UIScreenBrightnessDidChangeNotification object:nil];
     } else {
         sender.selected = NO;
-        [self.brightnessTimer invalidate];
-        self.brightnessTimer = nil;
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIScreenBrightnessDidChangeNotification object:nil];
     }
+}
+
+- (void)brightnessChangeNoti:(NSNotification *)noti {
+    UIScreen *screen = noti.object;
+    if (![screen isKindOfClass:[UIScreen class]]) {
+        screen = nil;
+    }
+    self.screenBightnessLbl.text = [NSString stringWithFormat:@"%.2f", screen.brightness];
 }
 
 // 摄像头光线检测
@@ -224,25 +224,26 @@
     // 第一次创建AVCaptureDeviceInput对象时系统会自动向用户请求授权
     if (!_captureSession) {
         
+        // 创建会话
         NSError *error;
         AVCaptureSession *captureSession = [AVCaptureSession new];
         _captureSession = captureSession;
         
-        // 输入
+        // 输入：摄像头
         AVCaptureDevice *cameraDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
         AVCaptureDeviceInput *cameraDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:cameraDevice error:&error];
         if ([captureSession canAddInput:cameraDeviceInput]) {
             [captureSession addInput:cameraDeviceInput];
         }
         
-        // 输出
+        // 输出：视频数据
         AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
         [output setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
         if ([captureSession canAddOutput:output]) {
             [captureSession addOutput:output];
         }
         
-        // 实时预览
+        // 实时预览：展现给用户
         AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
         previewLayer.frame = self.lightVideoV.bounds;
         [self.lightVideoV.layer addSublayer:previewLayer];
@@ -281,7 +282,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(proximityStateChange:) name:UIDeviceProximityStateDidChangeNotification object:nil
          ];
     } else {
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
     }
 }
 

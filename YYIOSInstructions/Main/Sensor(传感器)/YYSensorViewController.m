@@ -9,50 +9,56 @@
 #import "YYSensorViewController.h"
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
+#import <ImageIO/CGImageProperties.h>
 
-@interface YYSensorViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *pedometerEnableBtn;
-@property (weak, nonatomic) IBOutlet UIButton *accelerationEnableBtn;
-@property (weak, nonatomic) IBOutlet UIButton *gyroEnableBtn;
-@property (weak, nonatomic) IBOutlet UIButton *proximityEnableBtn;
-@property (weak, nonatomic) IBOutlet UIButton *magnetEnableBtn;
+@interface YYSensorViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton   *pedometerEnableBtn;
+@property (weak, nonatomic) IBOutlet UIButton   *accelerationEnableBtn;
+@property (weak, nonatomic) IBOutlet UIButton   *gyroEnableBtn;
+@property (weak, nonatomic) IBOutlet UIButton   *proximityEnableBtn;
+@property (weak, nonatomic) IBOutlet UIButton   *magnetEnableBtn;
+@property (weak, nonatomic) IBOutlet UIButton   *cameraEnableBtn;
 
 // 光线
-@property (weak, nonatomic) IBOutlet UIView *lightVideo;
+@property (weak, nonatomic) IBOutlet UIView     *lightVideoV;
+@property (weak, nonatomic) IBOutlet UILabel    *screenBightnessLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *cameraBightnessLbl;
 
 // 距离传感器
-@property (weak, nonatomic) IBOutlet UISwitch *proximitySwitch;
+@property (weak, nonatomic) IBOutlet UISwitch   *proximitySwitch;
 
 // 计步器
-@property (weak, nonatomic) IBOutlet UILabel  *pedometerStartLbl;
-@property (weak, nonatomic) IBOutlet UILabel  *pedometerEndLbl;
-@property (weak, nonatomic) IBOutlet UILabel  *pedometerNowLbl;
-@property (weak, nonatomic) IBOutlet UILabel  *pedometerStepCountLbl;
-@property (weak, nonatomic) IBOutlet UILabel  *pedometerDistanceLbl;
-@property (weak, nonatomic) IBOutlet UILabel  *pedometerSpeedLbl;
-
+@property (weak, nonatomic) IBOutlet UILabel    *pedometerStartLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *pedometerEndLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *pedometerNowLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *pedometerStepCountLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *pedometerDistanceLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *pedometerSpeedLbl;
 
 // 加速计
-@property (weak, nonatomic) IBOutlet UILabel *accelerationXLbl;
-@property (weak, nonatomic) IBOutlet UILabel *accelerationYLbl;
-@property (weak, nonatomic) IBOutlet UILabel *accelerationZLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *accelerationXLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *accelerationYLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *accelerationZLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *shakeImgV;
 @property (weak, nonatomic) IBOutlet UIImageView *santaClausImgV;
 
 // 陀螺仪
-@property (weak, nonatomic) IBOutlet UILabel *gyroXLbl;
-@property (weak, nonatomic) IBOutlet UILabel *gyroYLbl;
-@property (weak, nonatomic) IBOutlet UILabel *gyroZLbl;
-@property (weak, nonatomic) IBOutlet UILabel *gyroRateLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *gyroXLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *gyroYLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *gyroZLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *gyroRateLbl;
 
 // 磁力计
-@property (weak, nonatomic) IBOutlet UILabel *magnetXLbl;
-@property (weak, nonatomic) IBOutlet UILabel *magnetYLbl;
-@property (weak, nonatomic) IBOutlet UILabel *magnetZLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *magnetXLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *magnetYLbl;
+@property (weak, nonatomic) IBOutlet UILabel    *magnetZLbl;
 
 // 其他
-@property (nonatomic, strong) CMMotionManager *motionManage;
-@property (nonatomic, strong) CMPedometer     *pedometer;
+@property (nonatomic, strong) CMMotionManager   *motionManage;
+@property (nonatomic, strong) CMPedometer       *pedometer;
+@property (nonatomic, strong) AVCaptureSession  *captureSession;
+@property (nonatomic, strong) NSTimer           *brightnessTimer;
 
 @end
 
@@ -60,7 +66,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initSensor];
     [self checkEnable];
 }
 
@@ -69,17 +74,7 @@
     self.proximitySwitch.on = NO;
 }
 
-- (void)initSensor {
-    
-    self.motionManage = [[CMMotionManager alloc] init];
-    // 控制传感器的更新间隔
-    self.motionManage.accelerometerUpdateInterval = 0.2;
-    self.motionManage.gyroUpdateInterval = 0.5;
-    self.motionManage.magnetometerUpdateInterval = 0.5;
-    
-    self.pedometer = [[CMPedometer alloc] init];
-}
-
+// 检查设备的可用性
 - (void)checkEnable{
     
     // 距离传感器
@@ -100,51 +95,176 @@
     
     // 磁力计
     self.magnetEnableBtn.enabled = self.motionManage.isMagnetometerAvailable;
+    
+    // 摄像头
+    self.magnetEnableBtn.enabled = [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
 }
 
+// 显示提示信息
 - (void)showWithTitle:(NSString *)title message:(NSString *)message{
     UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [ac addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:ac animated:YES completion:nil];
 }
 
+// 结束处理
+- (void)dealloc{
+    
+    // 光线
+    if(self.brightnessTimer) {
+        [self.brightnessTimer invalidate];
+        self.brightnessTimer = nil;
+    }
+    if(_captureSession){
+        [self.captureSession stopRunning];
+        self.captureSession = nil;
+    }
+    
+    // 距离传感器
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    // 计步器
+    if (_pedometer) {
+        [self.pedometer stopPedometerUpdates];
+        [self.pedometer stopPedometerEventUpdates];
+        self.pedometer = nil;
+    }
+    
+    // 加速计、陀螺仪、磁力计
+    if (_motionManage) {
+        [self.motionManage stopAccelerometerUpdates];
+        [self.motionManage stopGyroUpdates];
+        [self.motionManage stopMagnetometerUpdates];
+        [self.motionManage stopDeviceMotionUpdates];
+        self.motionManage = nil;
+    }
+}
+
+- (CMMotionManager *)motionManage {
+    if (!_motionManage) {
+        
+        _motionManage = [[CMMotionManager alloc] init];
+        // 控制传感器的更新间隔
+        _motionManage.accelerometerUpdateInterval = 0.2;
+        _motionManage.gyroUpdateInterval = 0.5;
+        _motionManage.magnetometerUpdateInterval = 0.5;
+    }
+    return _motionManage;
+}
+
+- (CMPedometer *)pedometer {
+    if (!_pedometer) {
+        _pedometer = [[CMPedometer alloc] init];
+    }
+    return _pedometer;
+}
+
+
 #pragma makr - 光线检测
+/*
+ 1.  <GraphicsServices/GraphicsServices.h>提供光线强度的检测，但为苹果私有api，不允许上架产品使用，所以使用其它方式检测
+ 
+ 2. 检测屏幕亮度
+        1. 对手机自动亮度调节进行设置，设置-->显示与亮度-->允许自动亮度调节
+        2. 当手机感受到外界光线亮度变化时，会自动调节屏幕亮度；或手动调节屏幕亮度
+        3. 通过[UIScreen mainScreen].brightness，可以获取屏幕亮度
+ 
+ 3. 摄像头检测：通过对摄像头捕获的视频流进行分析
+ */
 
-- (void)capture{
-    
-    NSError *error;
-    AVCaptureSession *captureSession = [AVCaptureSession new];
-    AVCaptureDevice *cameraDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    AVCaptureDeviceInput *cameraDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:cameraDevice error:&error];
-    if ([captureSession canAddInput:cameraDeviceInput]) {
-        [captureSession addInput:cameraDeviceInput];
+// 屏幕光线检测
+- (IBAction)screenBrightnessTest:(UIButton *)sender {
+    if (!sender.selected) {
+        sender.selected = YES;
+        __weak typeof (self) weakSelf = self;
+        self.brightnessTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            weakSelf.screenBightnessLbl.text = [NSString stringWithFormat:@"%.2f",[UIScreen mainScreen].brightness];
+        }];
+    } else {
+        sender.selected = NO;
+        [self.brightnessTimer invalidate];
+        self.brightnessTimer = nil;
     }
-    [captureSession startRunning];
-    
-    
-    CMTime frameDuration = CMTimeMake(1, 60);
-    NSArray *supportedFrameRateRanges = [cameraDevice.activeFormat videoSupportedFrameRateRanges];
-    BOOL frameRateSupported = NO;
-    for (AVFrameRateRange *range in supportedFrameRateRanges) {
-        if (CMTIME_COMPARE_INLINE(frameDuration, >=, range.minFrameDuration) &&
-            CMTIME_COMPARE_INLINE(frameDuration, <=, range.maxFrameDuration)) {
-            frameRateSupported = YES;
+}
+
+// 摄像头光线检测
+- (IBAction)cameraBrightnessTest:(UIButton *)sender {
+    if (!sender.selected) {
+        
+        BOOL cameraAvailable = [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
+        if (!cameraAvailable) {
+            [self showWithTitle:@"摄像头不可用" message:nil];
+            return;
         }
+        
+        __weak typeof (self) weakSelf = self;
+        // 第一次会弹框请求授权，之后直接获取授权状态；如果未授权，视频为黑色画面，音频没声音
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            // 非主线程
+            NSLog(@"%@", [NSThread currentThread]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //获取授权状态
+                //AVAuthorizationStatus cameraAS = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+                if (!granted) {
+                    [weakSelf showWithTitle:@"摄像头未被授权" message:@"前往设置-->隐私-->相机 选择允许访问"];
+                    return ;
+                }
+                sender.selected = YES;
+                [weakSelf.captureSession startRunning];
+            });
+        }];
+    } else {
+        sender.selected = NO;
+        [self.captureSession stopRunning];
     }
-    if (frameRateSupported && [cameraDevice lockForConfiguration:&error]) {
-        [cameraDevice setActiveVideoMaxFrameDuration:frameDuration];
-        [cameraDevice setActiveVideoMinFrameDuration:frameDuration];
-        [cameraDevice unlockForConfiguration];
+}
+
+// 初始化视频流
+- (AVCaptureSession *)captureSession {
+    // 第一次创建AVCaptureDeviceInput对象时系统会自动向用户请求授权
+    if (!_captureSession) {
+        
+        NSError *error;
+        AVCaptureSession *captureSession = [AVCaptureSession new];
+        _captureSession = captureSession;
+        
+        // 输入
+        AVCaptureDevice *cameraDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        AVCaptureDeviceInput *cameraDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:cameraDevice error:&error];
+        if ([captureSession canAddInput:cameraDeviceInput]) {
+            [captureSession addInput:cameraDeviceInput];
+        }
+        
+        // 输出
+        AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
+        [output setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
+        if ([captureSession canAddOutput:output]) {
+            [captureSession addOutput:output];
+        }
+        
+        // 实时预览
+        AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
+        previewLayer.frame = self.lightVideoV.bounds;
+        [self.lightVideoV.layer addSublayer:previewLayer];
     }
+    return _captureSession;
+}
 
-    AVCaptureVideoPreviewLayer *previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
-    previewLayer.frame = self.lightVideo.bounds;
-
-    [self.lightVideo.layer addSublayer:previewLayer];
+// 输出视频流
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+    
+    CFDictionaryRef metadataDict = CMCopyDictionaryOfAttachments(NULL,sampleBuffer, kCMAttachmentMode_ShouldPropagate);
+    NSDictionary *metadata = [[NSMutableDictionary alloc] initWithDictionary:(__bridge NSDictionary*)metadataDict];
+    CFRelease(metadataDict);
+    
+    NSDictionary *exifMetadata = [metadata[(NSString *)kCGImagePropertyExifDictionary] mutableCopy];
+    float brightnessValue = [exifMetadata[(NSString *)kCGImagePropertyExifBrightnessValue] floatValue];
+    self.cameraBightnessLbl.text = [NSString stringWithFormat:@"%.2f",brightnessValue];
 }
 
 #pragma mark - 距离传感器
 
+// 距离传感器测试
 - (IBAction)proximitySwitch:(UISwitch *)sender {
     
     [UIDevice currentDevice].proximityMonitoringEnabled = sender.on;
@@ -173,22 +293,6 @@
     }
 }
 
-- (void)dealloc{
-    
-    // 距离传感器
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    // 计步器
-    [self.pedometer stopPedometerUpdates];
-    [self.pedometer stopPedometerEventUpdates];
-    
-    // 加速计、陀螺仪、磁力计
-    [self.motionManage stopAccelerometerUpdates];
-    [self.motionManage stopGyroUpdates];
-    [self.motionManage stopMagnetometerUpdates];
-    [self.motionManage stopDeviceMotionUpdates];
-}
-
 #pragma mark - 计步器
 
 /* 
@@ -207,34 +311,41 @@
             return;
         }
         
-        // 授权判断
-        if(![CMSensorRecorder isAuthorizedForRecording]){
-            [self showWithTitle:@"未授权" message:@"前往设置－>隐私->运动与健康，点击允许访问"];
-            return;
-        }
-        sender.selected = YES;
-        
-        // 监测计步器状态：暂停、恢复
+        // pedometer第一次被使用时，才会由系统提示用户授权“运动与健康”;但没找到授权的相关方法，通过该方式也可以实现需求
         __weak typeof (self) weakSelf = self;
-        [self.pedometer startPedometerEventUpdatesWithHandler:^(CMPedometerEvent * _Nullable pedometerEvent, NSError * _Nullable error) {
-            NSLog(@"%@",pedometerEvent.type==CMPedometerEventTypePause? @"暂停":@"继续");
-        }];
-        
-        // 监测计步器数据
-        [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
-            if (pedometerData) {
-                // 回调不在主线程，所以需要回到主线程处理
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                    df.dateFormat = @"HH:mm:ss";
-                    weakSelf.pedometerStartLbl.text = [df stringFromDate:pedometerData.startDate];
-                    weakSelf.pedometerEndLbl.text = [df stringFromDate:pedometerData.endDate];
-                    weakSelf.pedometerNowLbl.text = [df stringFromDate:[NSDate date]];
-                    weakSelf.pedometerStepCountLbl.text = [NSString stringWithFormat:@"%ld", pedometerData.numberOfSteps.integerValue];
-                    weakSelf.pedometerDistanceLbl.text = [NSString stringWithFormat:@"%f", pedometerData.distance.floatValue];
-                    weakSelf.pedometerSpeedLbl.text = [NSString stringWithFormat:@"%f",3.6/pedometerData.averageActivePace.floatValue];
-                });
-            }
+        [self.pedometer queryPedometerDataFromDate:[NSDate date] toDate:[NSDate date] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
+            
+            // 用户选择了授权与否之后，该block才会被调用，不在主线程
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // 授权判断
+                if(![CMSensorRecorder isAuthorizedForRecording]){
+                    [weakSelf showWithTitle:@"未授权" message:@"前往设置－>隐私->运动与健康，点击允许访问"];
+                    return;
+                }
+                sender.selected = YES;
+                
+                // 监测计步器状态：暂停、恢复
+                [weakSelf.pedometer startPedometerEventUpdatesWithHandler:^(CMPedometerEvent * _Nullable pedometerEvent, NSError * _Nullable error) {
+                    NSLog(@"%@",pedometerEvent.type==CMPedometerEventTypePause? @"暂停":@"继续");
+                }];
+                
+                // 监测计步器数据
+                [weakSelf.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
+                    if (pedometerData) {
+                        // 回调不在主线程，所以需要回到主线程处理
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                            df.dateFormat = @"HH:mm:ss";
+                            weakSelf.pedometerStartLbl.text = [df stringFromDate:pedometerData.startDate];
+                            weakSelf.pedometerEndLbl.text = [df stringFromDate:pedometerData.endDate];
+                            weakSelf.pedometerNowLbl.text = [df stringFromDate:[NSDate date]];
+                            weakSelf.pedometerStepCountLbl.text = [NSString stringWithFormat:@"%ld", pedometerData.numberOfSteps.integerValue];
+                            weakSelf.pedometerDistanceLbl.text = [NSString stringWithFormat:@"%f", pedometerData.distance.floatValue];
+                            weakSelf.pedometerSpeedLbl.text = [NSString stringWithFormat:@"%f",3.6/pedometerData.averageActivePace.floatValue];
+                        });
+                    }
+                }];
+            });
         }];
     } else {
         // 结束记步
@@ -264,8 +375,6 @@
         [self.motionManage startAccelerometerUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
             // 回到主线程
             dispatch_async(dispatch_get_main_queue(), ^{
-                
-                NSLog(@"%f",[UIScreen mainScreen].brightness);
                 
                 weakSelf.accelerationXLbl.text = [NSString stringWithFormat:@"%.2f", accelerometerData.acceleration.x];
                 weakSelf.accelerationYLbl.text = [NSString stringWithFormat:@"%.2f", accelerometerData.acceleration.y];

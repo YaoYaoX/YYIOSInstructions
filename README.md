@@ -40,4 +40,5 @@ ios日常积累,以后慢慢加
     4. 加速计
     5. 陀螺仪
     6. 磁力计
+<img src="https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/SensorDemo.jpeg" width="300" alt="SensorDemo" align="center" />
 <br />

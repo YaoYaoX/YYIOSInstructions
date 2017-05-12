@@ -28,6 +28,7 @@ static NSString *ID = @"reuseIdentifier";
                   @{@"title":@"ActionSheet", @"class":@"YYActionSheetTestController"},
                   @{@"title":@"多边形", @"class":@"YYPolygonViewController"},
                   @{@"title":@"传感器", @"class":@"YYSensorViewController"},
+                  //@{@"title":@"授权", @"class":@"YYAuthorityViewController"},
                   @{@"title":@"自定义View", @"class":@"YYCustomViewController"}];
 
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight)];

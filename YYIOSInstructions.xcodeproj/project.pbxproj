@@ -44,6 +44,10 @@
 		25B3EFA71EA9FCB8007D9D38 /* YYDashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B3EFA61EA9FCB8007D9D38 /* YYDashView.m */; };
 		25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BBBB911D65C26F0011D9AF /* YYScrollTabTestController.m */; };
 		25BF121C1D96326A000352CA /* YYSwipInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BF121B1D96326A000352CA /* YYSwipInteractiveTransition.m */; };
+		25C4DEC81EC5965B00F65F60 /* YYAuthorityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C4DEC61EC5965B00F65F60 /* YYAuthorityViewController.m */; };
+		25C4DECD1EC5984400F65F60 /* YYAuthorityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C4DECB1EC5984400F65F60 /* YYAuthorityCell.m */; };
+		25C4DECE1EC5984400F65F60 /* YYAuthorityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C4DECC1EC5984400F65F60 /* YYAuthorityCell.xib */; };
+		25C4DED11EC59A2C00F65F60 /* YYAuthorityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C4DED01EC59A2C00F65F60 /* YYAuthorityModel.m */; };
 		25CBE2321EC0746100C8FE64 /* SantaClaus.png in Resources */ = {isa = PBXBuildFile; fileRef = 25CBE2311EC0746100C8FE64 /* SantaClaus.png */; };
 		25DA60B51D587B8600A526C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25DA60B71D587B8600A526C4 /* InfoPlist.strings */; };
 		25DA60D31D58807100A526C4 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DA60BB1D58807100A526C4 /* MASCompositeConstraint.m */; };
@@ -144,6 +148,13 @@
 		25BF121A1D96326A000352CA /* YYSwipInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSwipInteractiveTransition.h; sourceTree = "<group>"; };
 		25BF121B1D96326A000352CA /* YYSwipInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSwipInteractiveTransition.m; sourceTree = "<group>"; };
 		25BF121D1D9632EE000352CA /* YYTransitonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTransitonDefine.h; sourceTree = "<group>"; };
+		25C4DEC51EC5965B00F65F60 /* YYAuthorityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYAuthorityViewController.h; sourceTree = "<group>"; };
+		25C4DEC61EC5965B00F65F60 /* YYAuthorityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAuthorityViewController.m; sourceTree = "<group>"; };
+		25C4DECA1EC5984400F65F60 /* YYAuthorityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYAuthorityCell.h; sourceTree = "<group>"; };
+		25C4DECB1EC5984400F65F60 /* YYAuthorityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAuthorityCell.m; sourceTree = "<group>"; };
+		25C4DECC1EC5984400F65F60 /* YYAuthorityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYAuthorityCell.xib; sourceTree = "<group>"; };
+		25C4DECF1EC59A2C00F65F60 /* YYAuthorityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYAuthorityModel.h; sourceTree = "<group>"; };
+		25C4DED01EC59A2C00F65F60 /* YYAuthorityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAuthorityModel.m; sourceTree = "<group>"; };
 		25CBE2311EC0746100C8FE64 /* SantaClaus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SantaClaus.png; sourceTree = "<group>"; };
 		25DA60B61D587B8600A526C4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		25DA60B81D587B8800A526C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -291,6 +302,7 @@
 		25754D8E1D5471FA009EA9B7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				25C4DEC41EC5963F00F65F60 /* Authority(授权) */,
 				258EC03C1EBC5C250097F289 /* Sensor(传感器:需真机测试) */,
 				25154B4F1EA0BD8E00CB754F /* Polygon(可转动的多边形) */,
 				254AF6851E9F4FDA0031CE89 /* ActionSheet(类似微博的弹出框) */,
@@ -429,6 +441,20 @@
 			path = "Sensor(传感器)";
 			sourceTree = "<group>";
 		};
+		25C4DEC41EC5963F00F65F60 /* Authority(授权) */ = {
+			isa = PBXGroup;
+			children = (
+				25C4DEC51EC5965B00F65F60 /* YYAuthorityViewController.h */,
+				25C4DEC61EC5965B00F65F60 /* YYAuthorityViewController.m */,
+				25C4DECA1EC5984400F65F60 /* YYAuthorityCell.h */,
+				25C4DECB1EC5984400F65F60 /* YYAuthorityCell.m */,
+				25C4DECC1EC5984400F65F60 /* YYAuthorityCell.xib */,
+				25C4DECF1EC59A2C00F65F60 /* YYAuthorityModel.h */,
+				25C4DED01EC59A2C00F65F60 /* YYAuthorityModel.m */,
+			);
+			path = "Authority(授权)";
+			sourceTree = "<group>";
+		};
 		25DA60B91D58807100A526C4 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +574,7 @@
 				25A3FE071EC06C74004C25B6 /* shake.png in Resources */,
 				25754D5D1D54361F009EA9B7 /* LaunchScreen.storyboard in Resources */,
 				25154B421EA0B81000CB754F /* YYLaunchViewController.xib in Resources */,
+				25C4DECE1EC5984400F65F60 /* YYAuthorityCell.xib in Resources */,
 				25CBE2321EC0746100C8FE64 /* SantaClaus.png in Resources */,
 				25DA60B51D587B8600A526C4 /* InfoPlist.strings in Resources */,
 				25754DBA1D54A518009EA9B7 /* Localizable.strings in Resources */,
@@ -580,15 +607,18 @@
 				25BBBB921D65C26F0011D9AF /* YYScrollTabTestController.m in Sources */,
 				258EC0431EBC627A0097F289 /* YYSensorViewController.m in Sources */,
 				25B3EFA41EA9FC85007D9D38 /* YYCustomViewController.m in Sources */,
+				25C4DED11EC59A2C00F65F60 /* YYAuthorityModel.m in Sources */,
 				25A863621D95367500C56883 /* YYTransitionMainController.m in Sources */,
 				25154B4D1EA0B82100CB754F /* YYActionSheetView.m in Sources */,
 				250A03ED1D6EF6C8005F6886 /* YYTransitionMainNavController.m in Sources */,
 				253F47191D81657A007FF85B /* NSString+URL.m in Sources */,
 				258393CE1D5DC74800980DBA /* YYScrollTabBar.m in Sources */,
+				25C4DEC81EC5965B00F65F60 /* YYAuthorityViewController.m in Sources */,
 				25DA60DB1D58807100A526C4 /* View+MASAdditions.m in Sources */,
 				25154B4B1EA0B82100CB754F /* YYActionItem.m in Sources */,
 				25154B581EA0BEBB00CB754F /* YYPolygon.m in Sources */,
 				25DA60D61D58807100A526C4 /* MASLayoutConstraint.m in Sources */,
+				25C4DECD1EC5984400F65F60 /* YYAuthorityCell.m in Sources */,
 				258393D11D5DC7AE00980DBA /* UIColor+Additions.m in Sources */,
 				25DA60DF1D5882EB00A526C4 /* YYNavigationController.m in Sources */,
 				25DA60D41D58807100A526C4 /* MASConstraint.m in Sources */,

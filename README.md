@@ -29,3 +29,15 @@ ios日常积累,以后慢慢加
     2. rotateNum：每次旋转时转动的角个数
 <br />
 <img src="https://github.com/YaoYaoX/YYIOSInstructions/blob/master/Picture/polygon.png" width="300" alt="Polygon" align="center" />
+
+### 6. 传感器的使用
+
+涉及的内容有以下几部分，详细的说明请看:[IOS ＋ 传感器的使用(加速计、陀螺仪、计步器等)](http://www.jianshu.com/p/37a65f683bb9)
+   
+    1. 光线强弱检
+    2. 距离传感器
+    3. 计步器
+    4. 加速计
+    5. 陀螺仪
+    6. 磁力计
+<br />

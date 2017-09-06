@@ -3,7 +3,7 @@ ios日常积累,以后慢慢加
 
 积累内容
 
-### 1. 国际化
+### 1. 国际化 详细的可查看这篇文章[3分钟实现iOS语言本地化/国际化](http://www.cocoachina.com/ios/20170122/18609.html)
 
     步骤(文件名对应，别写错了)：
     1. 新建文件Localizable.strings(新建 -> ios -> Resource -> Strings file)

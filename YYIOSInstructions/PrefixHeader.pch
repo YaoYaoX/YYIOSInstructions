@@ -35,6 +35,7 @@
 
 // 头文件
 #import "UIColor+Additions.h"
+#import <UIKit/UIKit.h>
 
 // 系统版本信息
 #define kIOSVersion [[UIDevice currentDevice] systemVersion]
@@ -43,10 +44,14 @@
 #define kIOS9Later  ([kIOSVersion floatValue] >= 9.0)
 
 // 尺寸信息
-#define kScreenWidth        [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight       [UIScreen mainScreen].bounds.size.height
-#define kScreenMaxLength    (MAX(kScreenWidth, kScreenHeight))
-#define kScreenMinLength    (MIN(kScreenWidth, kScreenHeight))
+#define kCurrentScreenWidth  ([UIScreen mainScreen].bounds.size.width)
+#define kCurrentScreenHeight ([UIScreen mainScreen].bounds.size.height)
+#define kScreenWidth         MIN(kCurrentScreenWidth, kCurrentScreenHeight)
+#define kScreenHeight        MAX(kCurrentScreenWidth, kCurrentScreenHeight)
+// XS MAX:[414,896]  XS:[375,812]  XR:[414,896]  X:[375,812]
+#define kIsIPhoneXSeries     (kScreenHeight == 896.f || kScreenHeight == 812.f)
+#define kTopArea             (kIsIPhoneXSeries?44:0)
+#define kBottomArea          (kIsIPhoneXSeries?34:0)
 
 // 硬件类型
 #define IS_IPAD         (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)

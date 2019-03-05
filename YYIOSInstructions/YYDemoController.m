@@ -9,6 +9,7 @@
 #import "YYDemoController.h"
 #import "YYTransitionMainNavController.h"
 #import "YYTransitionTestViewController.h"
+#import "YYShowSandBoxViewController.h"
 
 static NSString *ID = @"reuseIdentifier";
 
@@ -29,7 +30,8 @@ static NSString *ID = @"reuseIdentifier";
                   @{@"title":@"多边形", @"class":@"YYPolygonViewController"},
                   @{@"title":@"传感器", @"class":@"YYSensorViewController"},
                   //@{@"title":@"授权", @"class":@"YYAuthorityViewController"},
-                  @{@"title":@"自定义View", @"class":@"YYCustomViewController"}];
+                  @{@"title":@"自定义View", @"class":@"YYCustomViewController"},
+                  @{@"title":@"查看沙盒文件", @"class":@"YYShowSandBoxViewController"}];
 
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight)];
     tableView.backgroundColor = [UIColor whiteColor];

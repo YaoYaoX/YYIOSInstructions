@@ -50,7 +50,7 @@
 #define kScreenHeight        MAX(kCurrentScreenWidth, kCurrentScreenHeight)
 // XS MAX:[414,896]  XS:[375,812]  XR:[414,896]  X:[375,812]
 #define kIsIPhoneXSeries     (kScreenHeight == 896.f || kScreenHeight == 812.f)
-#define kTopArea             (kIsIPhoneXSeries?44:0)
+#define kTopArea             (kIsIPhoneXSeries?44:20)
 #define kBottomArea          (kIsIPhoneXSeries?34:0)
 
 // 硬件类型

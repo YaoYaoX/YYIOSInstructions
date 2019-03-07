@@ -7,17 +7,9 @@
 //
 
 #import "YYShowSandBoxViewController.h"
+#import "YYShowFileController.h"
 
 #define KCustomGreenColor [UIColor colorWithRed:90/256.0 green:196/256.0 blue:84/256.0 alpha:1]
-
-typedef NS_ENUM(NSUInteger, YYFileType) {
-    YYFileTypeUnKnow,
-    YYFileTypeDocument,
-    YYFileTypeImage,
-    YYFileTypeText,
-    YYFileTypeMultiMedia,
-    YYFileTypeLastPage
-};
 
 @interface YYShowSandBoxViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -168,12 +160,16 @@ typedef NS_ENUM(NSUInteger, YYFileType) {
         [self gotoLastDocument];
     } else {
         NSString *name = self.array[indexPath.row-1];
-        NSString *path = [self.currentPath stringByAppendingPathComponent:name];
-        BOOL isdir = NO;
-        [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isdir];
-        if (isdir) {
+        YYFileType type = [self typeOfFile:name];
+        if (type == YYFileTypeDocument) {
             self.currentPath = [self.currentPath stringByAppendingPathComponent:name];
             [self loadFileData];
+        } else if (type == YYFileTypeImage || type == YYFileTypeText) {
+            NSString *fileUrl = [self.currentPath stringByAppendingPathComponent:name];
+            YYShowFileController *showFileVC = [YYShowFileController controllerWithFileType:type];
+            showFileVC.url = [NSURL fileURLWithPath:fileUrl];
+            showFileVC.name = name;
+            [self.navigationController pushViewController:showFileVC animated:YES];
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

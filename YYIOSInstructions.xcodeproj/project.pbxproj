@@ -40,6 +40,7 @@
 		258EC0441EBC627A0097F289 /* YYSensorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 258EC0421EBC627A0097F289 /* YYSensorViewController.xib */; };
 		25934744222E744200638996 /* YYShowSandBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25934743222E744200638996 /* YYShowSandBoxViewController.m */; };
 		25934748222E769F00638996 /* YYUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 25934747222E769F00638996 /* YYUtility.m */; };
+		25A1BA6722314A92008E823A /* YYShowFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A1BA6622314A92008E823A /* YYShowFileController.m */; };
 		25A3FE071EC06C74004C25B6 /* shake.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A3FE061EC06C74004C25B6 /* shake.png */; };
 		25A863621D95367500C56883 /* YYTransitionMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A863611D95367500C56883 /* YYTransitionMainController.m */; };
 		25B3EFA41EA9FC85007D9D38 /* YYCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B3EFA31EA9FC85007D9D38 /* YYCustomViewController.m */; };
@@ -142,6 +143,8 @@
 		25934743222E744200638996 /* YYShowSandBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYShowSandBoxViewController.m; sourceTree = "<group>"; };
 		25934746222E769F00638996 /* YYUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYUtility.h; sourceTree = "<group>"; };
 		25934747222E769F00638996 /* YYUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYUtility.m; sourceTree = "<group>"; };
+		25A1BA6522314A92008E823A /* YYShowFileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYShowFileController.h; sourceTree = "<group>"; };
+		25A1BA6622314A92008E823A /* YYShowFileController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYShowFileController.m; sourceTree = "<group>"; };
 		25A3FE061EC06C74004C25B6 /* shake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shake.png; sourceTree = "<group>"; };
 		25A863601D95367500C56883 /* YYTransitionMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTransitionMainController.h; sourceTree = "<group>"; };
 		25A863611D95367500C56883 /* YYTransitionMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTransitionMainController.m; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 			children = (
 				25934742222E744200638996 /* YYShowSandBoxViewController.h */,
 				25934743222E744200638996 /* YYShowSandBoxViewController.m */,
+				25A1BA6522314A92008E823A /* YYShowFileController.h */,
+				25A1BA6622314A92008E823A /* YYShowFileController.m */,
 			);
 			path = "ShowFiles(查看沙盒)";
 			sourceTree = "<group>";
@@ -639,6 +644,7 @@
 				250A03ED1D6EF6C8005F6886 /* YYTransitionMainNavController.m in Sources */,
 				253F47191D81657A007FF85B /* NSString+URL.m in Sources */,
 				258393CE1D5DC74800980DBA /* YYScrollTabBar.m in Sources */,
+				25A1BA6722314A92008E823A /* YYShowFileController.m in Sources */,
 				25C4DEC81EC5965B00F65F60 /* YYAuthorityViewController.m in Sources */,
 				25DA60DB1D58807100A526C4 /* View+MASAdditions.m in Sources */,
 				25934744222E744200638996 /* YYShowSandBoxViewController.m in Sources */,

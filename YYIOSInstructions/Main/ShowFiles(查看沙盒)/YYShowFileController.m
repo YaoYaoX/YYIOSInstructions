@@ -110,7 +110,7 @@
 - (void)setupSubviews {
     [super setupSubviews];
     
-    CGFloat top = kTopArea + 40;
+    CGFloat top = kTopArea + 44;
     CGFloat margin = 10;
     UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(margin, top + margin, kScreenWidth - margin * 2, kScreenHeight - top - margin * 2)];
     imageview.contentMode = UIViewContentModeScaleAspectFit;
